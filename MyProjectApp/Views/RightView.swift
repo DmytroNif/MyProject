@@ -22,6 +22,17 @@ class RightView: UIView{
        return obj
     }()
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        RightSetup()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func addSubviews(){
         self.addSubview(containerView)
         containerView.addSubview(search)
@@ -37,6 +48,10 @@ class RightView: UIView{
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(containerView)
         }
+    }
+    private func RightSetup() {
+        addSubviews()
+        makeConstraints()
     }
 }
 

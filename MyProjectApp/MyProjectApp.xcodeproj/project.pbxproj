@@ -37,6 +37,9 @@
 		845400C72B6B0A7400508875 /* NextItemButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400C62B6B0A7400508875 /* NextItemButtons.swift */; };
 		845400CA2B6D8F8000508875 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 845400C92B6D8F8000508875 /* Realm */; };
 		845400CC2B6D8F8000508875 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 845400CB2B6D8F8000508875 /* RealmSwift */; };
+		846CF6DA2B74293100C4277B /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 846CF6D92B74293100C4277B /* YouTubeiOSPlayerHelper */; };
+		846CF6DE2B7429F700C4277B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CF6DD2B7429F700C4277B /* DetailsViewController.swift */; };
+		846CF6E02B742A1800C4277B /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CF6DF2B742A1800C4277B /* DetailsView.swift */; };
 		84DA5FA92B72D2FB003B97AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA5FA82B72D2FB003B97AB /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +68,8 @@
 		845400C12B68558700508875 /* MovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB.swift; sourceTree = "<group>"; };
 		845400C42B6AA65100508875 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		845400C62B6B0A7400508875 /* NextItemButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextItemButtons.swift; sourceTree = "<group>"; };
+		846CF6DD2B7429F700C4277B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Controllers/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		846CF6DF2B742A1800C4277B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsView.swift; path = Views/DetailsView.swift; sourceTree = SOURCE_ROOT; };
 		84DA5FA82B72D2FB003B97AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +86,7 @@
 				845400972B63282800508875 /* SDWebImage in Frameworks */,
 				845400912B63261200508875 /* SnapKit-Dynamic in Frameworks */,
 				8454009C2B6328FB00508875 /* Lottie in Frameworks */,
+				846CF6DA2B74293100C4277B /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +132,7 @@
 			children = (
 				8454009D2B63F2EC00508875 /* LeftViewController.swift */,
 				8454009F2B63F40500508875 /* RightViewController.swift */,
+				846CF6DD2B7429F700C4277B /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -139,6 +146,7 @@
 				845400A52B64701800508875 /* LeftView.swift */,
 				845400A72B68031400508875 /* MovieCollectionViewCell.swift */,
 				845400A92B682C4B00508875 /* HeaderVIew.swift */,
+				846CF6DF2B742A1800C4277B /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +207,7 @@
 				8454009B2B6328FB00508875 /* Lottie */,
 				845400C92B6D8F8000508875 /* Realm */,
 				845400CB2B6D8F8000508875 /* RealmSwift */,
+				846CF6D92B74293100C4277B /* YouTubeiOSPlayerHelper */,
 			);
 			productName = MyProjectApp;
 			productReference = 845400762B6325B600508875 /* MyProjectApp.app */;
@@ -234,6 +243,7 @@
 				845400952B63282800508875 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				8454009A2B6328FB00508875 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				845400C82B6D8F8000508875 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				846CF6D82B74293100C4277B /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = 845400772B6325B600508875 /* Products */;
 			projectDirPath = "";
@@ -273,11 +283,13 @@
 				8454007A2B6325B600508875 /* AppDelegate.swift in Sources */,
 				845400A62B64701800508875 /* LeftView.swift in Sources */,
 				8454007C2B6325B600508875 /* SceneDelegate.swift in Sources */,
+				846CF6DE2B7429F700C4277B /* DetailsViewController.swift in Sources */,
 				845400BD2B68518D00508875 /* Endpoint.swift in Sources */,
 				845400C72B6B0A7400508875 /* NextItemButtons.swift in Sources */,
 				845400B42B6850B800508875 /* Genre.swift in Sources */,
 				845400A82B68031400508875 /* MovieCollectionViewCell.swift in Sources */,
 				84DA5FA92B72D2FB003B97AB /* Constants.swift in Sources */,
+				846CF6E02B742A1800C4277B /* DetailsView.swift in Sources */,
 				845400BB2B68515500508875 /* NetworkManager.swift in Sources */,
 				845400A42B63F4C900508875 /* RightView.swift in Sources */,
 				845400BF2B6851C900508875 /* Storage.swift in Sources */,
@@ -546,6 +558,14 @@
 				kind = branch;
 			};
 		};
+		846CF6D82B74293100C4277B /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -588,6 +608,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 845400C82B6D8F8000508875 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		846CF6D92B74293100C4277B /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 846CF6D82B74293100C4277B /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
