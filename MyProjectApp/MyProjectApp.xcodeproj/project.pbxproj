@@ -68,8 +68,8 @@
 		845400C12B68558700508875 /* MovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB.swift; sourceTree = "<group>"; };
 		845400C42B6AA65100508875 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		845400C62B6B0A7400508875 /* NextItemButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextItemButtons.swift; sourceTree = "<group>"; };
-		846CF6DD2B7429F700C4277B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Controllers/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
-		846CF6DF2B742A1800C4277B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsView.swift; path = Views/DetailsView.swift; sourceTree = SOURCE_ROOT; };
+		846CF6DD2B7429F700C4277B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Controllers/DetailsViewController/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
+		846CF6DF2B742A1800C4277B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsView.swift; path = Views/DetailsView/DetailsView.swift; sourceTree = SOURCE_ROOT; };
 		84DA5FA82B72D2FB003B97AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +93,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840BCD4A2B759BB000F5EB05 /* LeftView */ = {
+			isa = PBXGroup;
+			children = (
+				845400A52B64701800508875 /* LeftView.swift */,
+			);
+			path = LeftView;
+			sourceTree = "<group>";
+		};
+		840BCD4B2B759BC900F5EB05 /* RightView */ = {
+			isa = PBXGroup;
+			children = (
+				845400A32B63F4C900508875 /* RightView.swift */,
+			);
+			path = RightView;
+			sourceTree = "<group>";
+		};
+		840BCD4C2B759BD800F5EB05 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				846CF6DF2B742A1800C4277B /* DetailsView.swift */,
+			);
+			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		840BCD4D2B759C0E00F5EB05 /* LeftViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8454009D2B63F2EC00508875 /* LeftViewController.swift */,
+			);
+			path = LeftViewController;
+			sourceTree = "<group>";
+		};
+		840BCD4E2B759C1F00F5EB05 /* RightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8454009F2B63F40500508875 /* RightViewController.swift */,
+			);
+			path = RightViewController;
+			sourceTree = "<group>";
+		};
+		840BCD4F2B759C3000F5EB05 /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				846CF6DD2B7429F700C4277B /* DetailsViewController.swift */,
+			);
+			path = DetailsViewController;
+			sourceTree = "<group>";
+		};
 		8454006D2B6325B600508875 = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +178,9 @@
 		845400A12B63F44700508875 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8454009D2B63F2EC00508875 /* LeftViewController.swift */,
-				8454009F2B63F40500508875 /* RightViewController.swift */,
-				846CF6DD2B7429F700C4277B /* DetailsViewController.swift */,
+				840BCD4F2B759C3000F5EB05 /* DetailsViewController */,
+				840BCD4E2B759C1F00F5EB05 /* RightViewController */,
+				840BCD4D2B759C0E00F5EB05 /* LeftViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -140,13 +188,13 @@
 		845400A22B63F4AB00508875 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				840BCD4C2B759BD800F5EB05 /* DetailsView */,
+				840BCD4B2B759BC900F5EB05 /* RightView */,
+				840BCD4A2B759BB000F5EB05 /* LeftView */,
 				845400C42B6AA65100508875 /* ItemModel.swift */,
 				845400C62B6B0A7400508875 /* NextItemButtons.swift */,
-				845400A32B63F4C900508875 /* RightView.swift */,
-				845400A52B64701800508875 /* LeftView.swift */,
 				845400A72B68031400508875 /* MovieCollectionViewCell.swift */,
 				845400A92B682C4B00508875 /* HeaderVIew.swift */,
-				846CF6DF2B742A1800C4277B /* DetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
