@@ -9,8 +9,12 @@ import Foundation
 import UIKit
 
 class HeaderView: UICollectionReusableView {
+    
+    var genresTiteles = Genre.allCases
+    
     let titleLabel: UILabel = {
         let label = UILabel()
+        label.text = genresTiteles
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label

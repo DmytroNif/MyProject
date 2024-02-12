@@ -11,6 +11,7 @@ class LeftViewController: UIViewController {
     
 
     let mainView = LeftView()
+//    var genresTiteles = Genre.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
