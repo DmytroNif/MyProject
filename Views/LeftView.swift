@@ -44,7 +44,6 @@ class LeftView: UIView{
             layout.scrollDirection = .vertical // вертикальна прокрутка
 
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            collectionView.backgroundColor = .red
             return collectionView
         }()
     
@@ -115,23 +114,3 @@ class LeftView: UIView{
         makeConstraints()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
