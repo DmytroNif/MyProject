@@ -42,6 +42,12 @@ class DetailsView: UIView{
         return obj
     }()
     
+    let saveButton: UIButton = {
+        let obj = UIButton()
+        
+        return obj
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
