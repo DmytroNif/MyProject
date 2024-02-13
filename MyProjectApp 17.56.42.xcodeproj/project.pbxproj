@@ -90,22 +90,6 @@
 		8454006D2B6325B600508875 = {
 			isa = PBXGroup;
 			children = (
-				845400782B6325B600508875 /* MyProjectApp */,
-				845400772B6325B600508875 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		845400772B6325B600508875 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				845400762B6325B600508875 /* MyProjectApp.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		845400782B6325B600508875 /* MyProjectApp */ = {
-			isa = PBXGroup;
-			children = (
 				845400AC2B68501300508875 /* API */,
 				845400B92B68513C00508875 /* Managers */,
 				845400C02B68556900508875 /* DataBase */,
@@ -117,8 +101,16 @@
 				845400822B6325B800508875 /* Assets.xcassets */,
 				845400842B6325B800508875 /* LaunchScreen.storyboard */,
 				845400872B6325B800508875 /* Info.plist */,
+				845400772B6325B600508875 /* Products */,
 			);
-			path = MyProjectApp;
+			sourceTree = "<group>";
+		};
+		845400772B6325B600508875 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				845400762B6325B600508875 /* MyProjectApp.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		845400A12B63F44700508875 /* Controllers */ = {
@@ -219,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 845400712B6325B600508875 /* Build configuration list for PBXProject "MyProjectApp" */;
+			buildConfigurationList = 845400712B6325B600508875 /* Build configuration list for PBXProject "MyProjectApp 17.56.42" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -485,7 +477,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		845400712B6325B600508875 /* Build configuration list for PBXProject "MyProjectApp" */ = {
+		845400712B6325B600508875 /* Build configuration list for PBXProject "MyProjectApp 17.56.42" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				845400882B6325B800508875 /* Debug */,
