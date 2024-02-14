@@ -7,9 +7,9 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
-    
     let containerView: UIView = {
         let obj = UIView()
         return obj
@@ -20,6 +20,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
         return collectionView
     }()
     
@@ -86,6 +87,7 @@ class HorizontalCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white
+        label.text = "Some text"
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
@@ -105,11 +107,13 @@ class HorizontalCell: UICollectionViewCell {
         clipsToBounds = true
         
         addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
+        label.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    func setupCell(model: Movie) {
+        label.text = model.title
     }
 }
 

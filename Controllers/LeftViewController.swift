@@ -10,6 +10,9 @@ import UIKit
 class LeftViewController: UIViewController {
     
     let mainView = LeftView()
+    let meneger = NetworkManager()
+    
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +20,16 @@ class LeftViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCell")
         mainView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+        meneger.getPopularMovies(page: 1) { result in
+            switch result {
+                
+            case .success(let data):
+                print("Данні отримали")
+            case .failure(_):
+                print("some error")
+            }
+        }
+        
     }
     
     override func loadView() {
@@ -33,6 +46,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCollectionViewCell
+        cell.backgroundColor = .black
         cell.clipsToBounds = true
         return cell
     }
@@ -42,6 +56,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
+            headerView.backgroundColor = .red
             headerView.titleLabel.text = "Genres \(indexPath.section)"
             return headerView
         } else {
