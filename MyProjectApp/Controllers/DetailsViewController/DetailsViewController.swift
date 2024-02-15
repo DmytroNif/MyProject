@@ -1,13 +1,13 @@
 //
-//  RightViewController.swift
+//  DetailsViewController.swift
 //  MyProjectApp
 //
-//  Created by admin on 26/01/2024.
+//  Created by admin on 07/02/2024.
 //
 
 import UIKit
 
-class RightViewController: UIViewController {
+class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +15,7 @@ class RightViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
+   
 
 }
