@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
+    var model: [Movie] = [] {
+        didSet {
+            
+        }
+    }
+    
     let containerView: UIView = {
         let obj = UIView()
         return obj
@@ -60,12 +66,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup cell
 extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return model.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HorizontalCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HorizontalCell", for: indexPath) as! HorizontalCell
         cell.backgroundColor = .green
+        
+//        if let model = model[indexPath.row] {
+        cell.setupCell(model: model[indexPath.row])
+        
+    
         return cell
     }
     
@@ -83,7 +94,7 @@ import UIKit
 
 class HorizontalCell: UICollectionViewCell {
     
-    let label: UILabel = {
+    var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .white

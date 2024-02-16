@@ -19,9 +19,9 @@ class LeftView: UIView{
     
     let search: UISearchBar = {
         let obj = UISearchBar()
-        obj.backgroundColor = .systemBlue
-        obj.barTintColor = .lightGray.withAlphaComponent(0.5)
-        obj.isHidden = true
+//        obj.barTintColor = .lightGray
+        obj.isHidden = false
+        obj.backgroundColor = .clear
         obj.layer.cornerRadius = 10
         return obj
     }()
@@ -29,7 +29,7 @@ class LeftView: UIView{
     let showSearch: UIButton = {
         let obj = UIButton()
         obj.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        obj.isHidden = false
+        obj.isHidden = true
         return obj
     }()
     
@@ -70,7 +70,7 @@ class LeftView: UIView{
     private func addSubviews(){
         self.addSubview(containerView)
         containerView.addSubview(search)
-        containerView.addSubview(showSearch)
+        search.addSubview(showSearch)
         containerView.addSubview(segmentedControl)
         containerView.addSubview(collectionView)
     }
@@ -82,29 +82,26 @@ class LeftView: UIView{
         }
         
         search.snp.makeConstraints() { make in
-            make.height.equalTo(30)
-            make.width.equalTo(300)
-            make.centerX.equalToSuperview().offset(0)
-            make.centerY.equalToSuperview().offset(-350)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()
         }
         
         showSearch.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.width.equalTo(20)
-            make.centerX.equalToSuperview().offset(-170)
-            make.centerY.equalToSuperview().offset(-350)
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().inset(8)
         }
         
         segmentedControl.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.width.equalTo(150)
-            make.centerX.equalToSuperview().offset(0)
-            make.centerY.equalToSuperview().offset(-320)
+            make.top.equalTo(search.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(0)
+            make.top.equalTo(segmentedControl.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

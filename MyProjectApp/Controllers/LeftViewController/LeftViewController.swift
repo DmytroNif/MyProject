@@ -24,7 +24,7 @@ class LeftViewController: UIViewController {
             switch result {
                 
             case .success(let data):
-                print("Данні отримали")
+                self.movies = data.movies
             case .failure(_):
                 print("some error")
             }
@@ -48,6 +48,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCollectionViewCell
         cell.backgroundColor = .black
         cell.clipsToBounds = true
+        cell.model = movies
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -41,6 +41,11 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             // Обробка події вибору рядка
-            print("Selected row \(indexPath.row)")
+            
+            let vc = DetailsViewController()
+            vc.titleText = "Selected row \(indexPath.row)"
+            vc.modalTransitionStyle = .flipHorizontal
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
         }
 }
