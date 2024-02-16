@@ -7,26 +7,22 @@
 
 import Foundation
 import UIKit
-import SnapKit
 
 class HeaderView: UICollectionReusableView {
+    
+    var genresTiteles = Genre.allCases
+    
     let titleLabel: UILabel = {
         let label = UILabel()
+//        label.text = genresTiteles
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
-    }()
-    
-    let buttonLeft: UIButton = {
-        let obj = UIButton()
-        obj.backgroundColor = .blue
-        return obj
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(titleLabel)
-        addSubview(buttonLeft)
         // Налаштуйте constraints для titleLabel
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -35,11 +31,6 @@ class HeaderView: UICollectionReusableView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
-        buttonLeft.snp.makeConstraints { make in
-            make.top.right.equalToSuperview().inset(16)
-            make.size.equalTo(30)
-        }
     }
 
     required init?(coder aDecoder: NSCoder) {
