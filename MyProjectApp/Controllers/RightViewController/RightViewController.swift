@@ -7,16 +7,16 @@
 
 import UIKit
 
-class RightViewController: UIViewController {
+class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let mainView = RightView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        mainView.tableView.delegate = self
+        mainView.tableView.dataSource = self
+        mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func loadView() {

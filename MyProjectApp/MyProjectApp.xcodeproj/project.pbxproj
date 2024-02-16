@@ -172,7 +172,7 @@
 				845400842B6325B800508875 /* LaunchScreen.storyboard */,
 				845400872B6325B800508875 /* Info.plist */,
 			);
-			path = MyProjectApp;
+			name = MyProjectApp;
 			sourceTree = "<group>";
 		};
 		845400A12B63F44700508875 /* Controllers */ = {
@@ -495,7 +495,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6WDKK8372Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyProjectApp/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -523,7 +523,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6WDKK8372Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyProjectApp/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -18,7 +18,7 @@ class RightView: UIView{
     }()
     
     let tableView: UITableView = {
-        
+        let obj = UITableView()
        return obj
     }()
     
@@ -35,7 +35,7 @@ class RightView: UIView{
     
     private func addSubviews(){
         self.addSubview(containerView)
-        containerView.addSubview(search)
+//        containerView.addSubview(search)
         containerView.addSubview(tableView)
     }
     
