@@ -14,7 +14,14 @@ class DetailsView: UIView{
     
     let containerView: UIView = {
         let obj = UIView()
-        obj.backgroundColor = .white
+        obj.backgroundColor = .darkGray
+        return obj
+    }()
+    
+    lazy var backButton: UIButton = {
+       let obj = UIButton()
+        
+        obj.setTitle("Back", for: .normal)
         return obj
     }()
     
@@ -60,6 +67,7 @@ class DetailsView: UIView{
     
     private func addSubviews(){
         self.addSubview(containerView)
+        containerView.addSubview(backButton)
         containerView.addSubview(youtubePlayer)
         containerView.addSubview(titleLabel)
         containerView.addSubview(dateLabel)
@@ -70,6 +78,10 @@ class DetailsView: UIView{
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        backButton.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
         
         youtubePlayer.snp.makeConstraints { make in

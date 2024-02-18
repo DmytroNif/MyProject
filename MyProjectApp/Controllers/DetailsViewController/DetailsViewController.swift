@@ -8,14 +8,27 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    let mainView = DetailsView()
+    
+    var titleText: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        mainView.backButton.addTarget(self, action: #selector(backButtonTaped), for: .touchUpInside)
+        
+        if let titleText {
+            mainView.titleLabel.text = titleText
+        }
     }
     
-
-   
-
+    override func loadView() {
+        super.loadView()
+        view = mainView
+    }
+    
+    @objc
+    func backButtonTaped() {
+        dismiss(animated: true)
+    }
 }

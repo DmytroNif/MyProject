@@ -17,6 +17,7 @@ class LeftView: UIView{
         return obj
     }()
     
+
     let searchTextField: UITextField = {
             let textField = UITextField()
             textField.backgroundColor = UIColor.lightGray
@@ -89,6 +90,7 @@ class LeftView: UIView{
     
     private func addSubviews(){
         self.addSubview(containerView)
+
 //        containerView.addSubview(search)
 //        containerView.addSubview(showSearch)
         containerView.addSubview(searchTextField)
@@ -102,6 +104,7 @@ class LeftView: UIView{
             make.edges.equalToSuperview()
         }
         
+
 //        search.snp.makeConstraints() { make in
 //            make.height.equalTo(30)
 //            make.width.equalTo(300)
@@ -128,12 +131,12 @@ class LeftView: UIView{
         segmentedControl.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.width.equalTo(150)
-            make.centerX.equalToSuperview().offset(0)
-            make.centerY.equalToSuperview().offset(-320)
+            make.top.equalTo(search.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(segmentedControl.snp.bottom).offset(0)
+            make.top.equalTo(segmentedControl.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
