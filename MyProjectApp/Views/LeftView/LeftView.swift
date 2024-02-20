@@ -131,7 +131,7 @@ class LeftView: UIView{
         segmentedControl.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.width.equalTo(150)
-            make.top.equalTo(search.snp.bottom).offset(4)
+            make.top.equalTo(searchTextField.snp.bottom).offset(4)
             make.centerX.equalToSuperview()
         }
         
