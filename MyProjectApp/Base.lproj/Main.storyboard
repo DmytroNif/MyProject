@@ -18,7 +18,7 @@
                         <viewLayoutGuide key="safeArea" id="cc5-E1-1vJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="saved" selectedImage="bookmark" catalog="system" id="tch-Pl-cON"/>
+                    <tabBarItem key="tabBarItem" title="saved" image="bookmark" catalog="system" selectedImage="bookmark" id="tch-Pl-cON"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Awx-wy-Tb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
