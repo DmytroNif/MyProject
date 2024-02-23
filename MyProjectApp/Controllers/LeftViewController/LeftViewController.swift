@@ -76,6 +76,15 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 9)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //треба зробити навігацію в detailsView
+        let vc = DetailsViewController()
+        vc.titleText = "Selected row \(indexPath.row)"
+        vc.modalTransitionStyle = .flipHorizontal
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
 
 

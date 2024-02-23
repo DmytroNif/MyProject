@@ -41,6 +41,8 @@
 		846CF6DE2B7429F700C4277B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CF6DD2B7429F700C4277B /* DetailsViewController.swift */; };
 		846CF6E02B742A1800C4277B /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846CF6DF2B742A1800C4277B /* DetailsView.swift */; };
 		84DA5FA92B72D2FB003B97AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DA5FA82B72D2FB003B97AB /* Constants.swift */; };
+		84FF14A42B876B480065D404 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14A32B876B480065D404 /* Coordinator.swift */; };
+		84FF14A62B876B700065D404 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14A52B876B700065D404 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		846CF6DD2B7429F700C4277B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Controllers/DetailsViewController/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		846CF6DF2B742A1800C4277B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsView.swift; path = Views/DetailsView/DetailsView.swift; sourceTree = SOURCE_ROOT; };
 		84DA5FA82B72D2FB003B97AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84FF14A32B876B480065D404 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		84FF14A52B876B700065D404 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		845400782B6325B600508875 /* MyProjectApp */ = {
 			isa = PBXGroup;
 			children = (
+				84FF14A22B876B1D0065D404 /* Navigation */,
 				845400AC2B68501300508875 /* API */,
 				845400B92B68513C00508875 /* Managers */,
 				845400C02B68556900508875 /* DataBase */,
@@ -228,6 +233,15 @@
 				845400C12B68558700508875 /* MovieDB.swift */,
 			);
 			path = DataBase;
+			sourceTree = "<group>";
+		};
+		84FF14A22B876B1D0065D404 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				84FF14A32B876B480065D404 /* Coordinator.swift */,
+				84FF14A52B876B700065D404 /* MainCoordinator.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845400B02B68505E00508875 /* PageInfo.swift in Sources */,
+				84FF14A62B876B700065D404 /* MainCoordinator.swift in Sources */,
 				845400AA2B682C4B00508875 /* HeaderVIew.swift in Sources */,
 				845400C52B6AA65100508875 /* ItemModel.swift in Sources */,
 				8454009E2B63F2EC00508875 /* LeftViewController.swift in Sources */,
@@ -337,6 +352,7 @@
 				845400B42B6850B800508875 /* Genre.swift in Sources */,
 				845400A82B68031400508875 /* MovieCollectionViewCell.swift in Sources */,
 				84DA5FA92B72D2FB003B97AB /* Constants.swift in Sources */,
+				84FF14A42B876B480065D404 /* Coordinator.swift in Sources */,
 				846CF6E02B742A1800C4277B /* DetailsView.swift in Sources */,
 				845400BB2B68515500508875 /* NetworkManager.swift in Sources */,
 				845400A42B63F4C900508875 /* RightView.swift in Sources */,
