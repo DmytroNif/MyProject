@@ -9,6 +9,10 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
+
+    var movie: Movie? 
+
+    weak var coordinator: MainCoordinator?
     
     var titleText: String?
 

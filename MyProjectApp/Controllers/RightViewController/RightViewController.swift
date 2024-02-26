@@ -9,6 +9,8 @@ import UIKit
 
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    weak var coordinator: MainCoordinator?
+    
     let mainView = RightView()
     
     override func viewDidLoad() {

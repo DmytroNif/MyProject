@@ -9,6 +9,8 @@ import UIKit
 
 class LeftViewController: UIViewController {
     
+    weak var coordinator: MainCoordinator?
+    
     let mainView = LeftView()
     let meneger = NetworkManager()
     
@@ -79,11 +81,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //треба зробити навігацію в detailsView
-        let vc = DetailsViewController()
-        vc.titleText = "Selected row \(indexPath.row)"
-        vc.modalTransitionStyle = .flipHorizontal
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+       
     }
 }
 
