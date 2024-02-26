@@ -21,6 +21,11 @@ struct Movie: Codable {
     let voteAverage: Double
     let voteCount: Double
     
+    var imageURL: URL? {
+        let baseURL = "https://image.tmdb.org/t/p/w500"
+        return URL(string: baseURL + posterPath)
+    }
+    
     var geners: [MovieGenre] {
         let geners = Genre.allCases.filter({ genreIds.contains($0.rawValue) })
         return geners.prefix(3).compactMap { .init(id: $0.rawValue, name: "") }

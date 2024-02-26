@@ -15,8 +15,8 @@ class HeaderView: UICollectionReusableView {
     let titleLabel: UILabel = {
         let label = UILabel()
 //        label.text = genresTiteles
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
 

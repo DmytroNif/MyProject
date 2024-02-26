@@ -29,6 +29,7 @@ class LeftViewController: UIViewController {
                 
             case .success(let data):
                 self.movies = data.movies
+                self.mainView.collectionView.reloadData()
             case .failure(_):
                 print("some error")
             }
@@ -52,8 +53,8 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCollectionViewCell
         cell.backgroundColor = .black
         cell.clipsToBounds = true
-        cell.model = movies
-        cell.id = genresData[indexPath.section].rawValue
+        
+        cell.genre = genresData[indexPath.section]
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -62,7 +63,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
-            headerView.backgroundColor = .red
+            headerView.backgroundColor = .black
             headerView.titleLabel.text = genresData[indexPath.section].title
             return headerView
         } else {

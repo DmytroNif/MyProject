@@ -8,20 +8,18 @@
 import Foundation
 import UIKit
 import SnapKit
+import SDWebImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
-    var id: Int?
-       var sortedMovies: [Movie] = [] {
-           didSet {
-               horizontalCollectionView.reloadData()
-           }
-       }
-       
-       var model: [Movie] = [] {
-           didSet {
-               sortedMovies = model.filter { $0.genreIds.contains(id ?? 0) }
-           }
-       }
+    let network = NetworkManager()
+    
+    var genre: Genre? {
+            didSet {
+                fetchMoviesForGenre()
+            }
+        }
+    
+    var movies: [Movie] = []
     
     let containerView: UIView = {
         let obj = UIView()
@@ -53,6 +51,20 @@ class MovieCollectionViewCell: UICollectionViewCell {
         containerView.addSubview(horizontalCollectionView)
     }
     
+    private func fetchMoviesForGenre() {
+           guard let genre = genre else { return }
+           
+           network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
+               switch result {
+               case .success(let data):
+                   self?.movies = data.first?.movies ?? []
+                   self?.horizontalCollectionView.reloadData()
+               case .failure(let error):
+                   print(error)
+               }
+           }
+       }
+    
     private func setupCollection() {
         horizontalCollectionView.register(HorizontalCell.self, forCellWithReuseIdentifier: "HorizontalCell")
         horizontalCollectionView.dataSource = self
@@ -73,7 +85,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup cell
 extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sortedMovies.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -81,7 +93,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
         cell.backgroundColor = .green
         
 //        if let model = model[indexPath.row] {
-        cell.setupCell(model: sortedMovies[indexPath.row])
+        cell.setupCell(model: movies[indexPath.row])
         
     
         return cell
@@ -109,6 +121,12 @@ import UIKit
 
 class HorizontalCell: UICollectionViewCell {
     
+    var imagePoster: UIImageView = {
+       let obj = UIImageView()
+        
+        return obj
+    }()
+    
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -132,7 +150,13 @@ class HorizontalCell: UICollectionViewCell {
         layer.cornerRadius = 8
         clipsToBounds = true
         
+        addSubview(imagePoster)
         addSubview(label)
+        
+        imagePoster.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         label.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
@@ -140,6 +164,7 @@ class HorizontalCell: UICollectionViewCell {
     
     func setupCell(model: Movie) {
         label.text = model.title
+        imagePoster.sd_setImage(with: model.imageURL)
     }
 }
 
