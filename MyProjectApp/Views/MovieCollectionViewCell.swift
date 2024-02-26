@@ -10,9 +10,11 @@ import UIKit
 import SnapKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
+    var id: Int?
+    var sortedMovies: [Movie] = []
     var model: [Movie] = [] {
         didSet {
-            
+            sortedMovies = model.filter { $0.genreIds.contains(id ?? 0) }
         }
     }
     
@@ -85,12 +87,13 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
         let height: CGFloat = collectionView.bounds.height
         return CGSize(width: width, height: height)
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = DetailsViewController()
         vc.titleText = "Selected row \(indexPath.row)"
         vc.modalTransitionStyle = .flipHorizontal
         vc.modalPresentationStyle = .fullScreen
-      //  self.naviga present(vc, animated: true)
+        // Используйте navigationController, если ваш контроллер находится внутри UINavigationController
     }
 }
 

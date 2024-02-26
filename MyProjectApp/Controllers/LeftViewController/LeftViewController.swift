@@ -11,6 +11,8 @@ class LeftViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
     
+    let genresData = Genre.allCases
+    
     let mainView = LeftView()
     let meneger = NetworkManager()
     
@@ -51,6 +53,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.backgroundColor = .black
         cell.clipsToBounds = true
         cell.model = movies
+        cell.id = genresData[indexPath.section].rawValue
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -60,7 +63,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         if kind == UICollectionView.elementKindSectionHeader {
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
             headerView.backgroundColor = .red
-            headerView.titleLabel.text = "Genres \(indexPath.section)"
+            headerView.titleLabel.text = genresData[indexPath.section].title
             return headerView
         } else {
             fatalError("Unexpected supplementary element kind")
