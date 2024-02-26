@@ -11,12 +11,17 @@ import SnapKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
     var id: Int?
-    var sortedMovies: [Movie] = []
-    var model: [Movie] = [] {
-        didSet {
-            sortedMovies = model.filter { $0.genreIds.contains(id ?? 0) }
-        }
-    }
+       var sortedMovies: [Movie] = [] {
+           didSet {
+               horizontalCollectionView.reloadData()
+           }
+       }
+       
+       var model: [Movie] = [] {
+           didSet {
+               sortedMovies = model.filter { $0.genreIds.contains(id ?? 0) }
+           }
+       }
     
     let containerView: UIView = {
         let obj = UIView()
@@ -68,7 +73,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup cell
 extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.count
+        return sortedMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -76,7 +81,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
         cell.backgroundColor = .green
         
 //        if let model = model[indexPath.row] {
-        cell.setupCell(model: model[indexPath.row])
+        cell.setupCell(model: sortedMovies[indexPath.row])
         
     
         return cell
