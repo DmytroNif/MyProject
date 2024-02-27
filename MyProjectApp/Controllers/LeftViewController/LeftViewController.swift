@@ -55,8 +55,11 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.clipsToBounds = true
         
         cell.genre = genresData[indexPath.section]
+        cell.coordinator = coordinator
+        
         return cell
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Genre.allCases.count
     }
@@ -71,8 +74,6 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width
         let height: CGFloat = collectionView.bounds.height / 3
@@ -81,11 +82,6 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 9)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //треба зробити навігацію в detailsView
-       
     }
 }
 
