@@ -14,10 +14,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
     let network = NetworkManager()
     
     var genre: Genre? {
-            didSet {
-                fetchMoviesForGenre()
-            }
+        didSet {
+            guard let genre = genre else { return }
+            fetchMoviesForGenre(genre: genre)
         }
+    }
+    
+    weak var coordinator: MainCoordinator?
     
     var movies: [Movie] = []
     
@@ -51,19 +54,17 @@ class MovieCollectionViewCell: UICollectionViewCell {
         containerView.addSubview(horizontalCollectionView)
     }
     
-    private func fetchMoviesForGenre() {
-           guard let genre = genre else { return }
-           
-           network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
-               switch result {
-               case .success(let data):
-                   self?.movies = data.first?.movies ?? []
-                   self?.horizontalCollectionView.reloadData()
-               case .failure(let error):
-                   print(error)
-               }
-           }
-       }
+    private func fetchMoviesForGenre(genre: Genre) {
+        network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.movies = data.first?.movies ?? []
+                self?.horizontalCollectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     private func setupCollection() {
         horizontalCollectionView.register(HorizontalCell.self, forCellWithReuseIdentifier: "HorizontalCell")
@@ -106,11 +107,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = DetailsViewController()
-        vc.titleText = "Selected row \(indexPath.row)"
-        vc.modalTransitionStyle = .flipHorizontal
-        vc.modalPresentationStyle = .fullScreen
-        // Используйте navigationController, если ваш контроллер находится внутри UINavigationController
-    }
+        let movie = movies[indexPath.row]
+        coordinator?.showDetails(id: movie.id)
+       }
 }
-
