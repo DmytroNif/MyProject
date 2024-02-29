@@ -61,17 +61,17 @@ class ItemModelView: UIView{
             make.width.equalTo(100)
             make.height.equalTo(220)
             //десь тут може бути помилка
-            make.top.leading.equalTo(containerView).offset(0)
+            make.top.leading.equalTo(containerView)
         }
         
         nameOfMovieLabel.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview()
-            make.top.equalTo(imageView.snp.bottom).offset(0)
+            make.top.equalTo(imageView.snp.bottom)
         }
         
         movieInfoLabel.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview()
-            make.top.equalTo(nameOfMovieLabel.snp.bottom).offset(0)
+            make.top.equalTo(nameOfMovieLabel.snp.bottom)
         }
     }
     
