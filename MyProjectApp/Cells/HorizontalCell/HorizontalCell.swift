@@ -11,13 +11,14 @@ class HorizontalCell: UICollectionViewCell {
     
     var imagePoster: UIImageView = {
        let obj = UIImageView()
-        
+        obj.contentMode = .scaleAspectFill
         return obj
     }()
     
     var label: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
+        label.numberOfLines = 2
         label.textColor = .white
         label.backgroundColor = .black.withAlphaComponent(0.8)
         label.text = "Some text"
@@ -35,20 +36,20 @@ class HorizontalCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-        backgroundColor = .orange
         layer.cornerRadius = 8
         clipsToBounds = true
         
-        addSubview(imagePoster)
         addSubview(label)
-        
-        imagePoster.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        addSubview(imagePoster)
         
         label.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(105)
+            make.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(3)
+        }
+        
+        imagePoster.snp.makeConstraints { make in
+            make.leading.trailing.top.equalToSuperview()
+            make.bottom.equalTo(label.snp.top).offset(-2)
         }
     }
     
