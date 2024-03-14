@@ -55,10 +55,16 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.clipsToBounds = true
         
         cell.genre = genresData[indexPath.section]
-        cell.coordinator = coordinator
+        cell.didSelectItem = { [weak self] movie in
+            let movieDetailsViewController = DetailsViewController()
+            movieDetailsViewController.movie = movie
+//            self?.present(movieDetailsViewController, animated: true, completion: nil)
+            self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
+        }
         
         return cell
     }
+
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Genre.allCases.count

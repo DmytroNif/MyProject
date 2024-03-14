@@ -34,13 +34,30 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Y1C-yb-yZc" kind="relationship" relationship="viewControllers" id="aOJ-cH-uq0"/>
-                        <segue destination="8I6-hN-wtv" kind="relationship" relationship="viewControllers" id="DrP-cW-biM"/>
+                        <segue destination="pAC-W5-sUs" kind="relationship" relationship="viewControllers" id="XNU-bh-N2n"/>
+                        <segue destination="8I6-hN-wtv" kind="relationship" relationship="viewControllers" id="IyB-Nf-acL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQs-aJ-1Ly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160" y="-123"/>
+            <point key="canvasLocation" x="24" y="-125"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="3yK-4U-2TY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m9k-8k-2fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController id="pAC-W5-sUs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Gbk-QU-qQl"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KgE-0x-efA">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y1C-yb-yZc" kind="relationship" relationship="rootViewController" id="dqy-60-NRT"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1121" y="-426"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="UUm-LY-22R">
@@ -53,6 +70,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="9Dh-Te-bH9"/>
+                    <navigationItem key="navigationItem" id="n0i-gZ-V2I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLk-M1-Z33" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

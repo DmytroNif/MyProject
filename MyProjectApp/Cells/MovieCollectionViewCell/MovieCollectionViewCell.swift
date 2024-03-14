@@ -13,6 +13,8 @@ import SDWebImage
 class MovieCollectionViewCell: UICollectionViewCell {
     let network = NetworkManager()
     
+    var didSelectItem: ((Movie) -> Void)?
+    
     var genre: Genre? {
         didSet {
             guard let genre = genre else { return }
@@ -108,6 +110,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
-        coordinator?.showDetails(id: movie.id)
-       }
+        didSelectItem?(movie)
+    }
+
 }
