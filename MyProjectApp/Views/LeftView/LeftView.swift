@@ -55,18 +55,22 @@ class LeftView: UIView{
 //    }()
     
     let segmentedControl: UISegmentedControl = {
-            let control = UISegmentedControl(items: ["movies", "series"])
-            control.selectedSegmentIndex = 0
-            return control
-        }()
+        let control = UISegmentedControl(items: ["movies", "series"])
+        control.selectedSegmentIndex = 0
+        // Встановлюємо колір тексту для невибраних елементів
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        // Встановлюємо колір тексту для вибраних елементів
+        control.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        return control
+    }()
     
     let collectionView: UICollectionView = {
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .vertical // вертикальна прокрутка
-
-            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-            return collectionView
-        }()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical // вертикальна прокрутка
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -11,9 +11,18 @@ import SnapKit
 
 class RightView: UIView{
     
+    private var movies: [Movie] = []
+    
     let containerView: UIView = {
         let obj = UIView()
         obj.backgroundColor = .white
+        return obj
+    }()
+    
+    let headerLabel: UILabel = {
+        let obj = UILabel()
+        obj.textColor = .black
+        obj.font = UIFont.preferredFont(forTextStyle: .headline)
         return obj
     }()
     
@@ -52,6 +61,14 @@ class RightView: UIView{
     private func RightSetup() {
         addSubviews()
         makeConstraints()
+    }
+    
+     func deleteMovie(indexPath: IndexPath) {
+        movies.remove(at: indexPath.row)
+        
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
     }
 }
 
