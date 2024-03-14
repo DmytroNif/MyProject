@@ -58,6 +58,8 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.didSelectItem = { [weak self] movie in
             let movieDetailsViewController = DetailsViewController()
             movieDetailsViewController.movie = movie
+            
+            movieDetailsViewController.titleText = movie.title
 //            self?.present(movieDetailsViewController, animated: true, completion: nil)
             self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         }
