@@ -10,9 +10,11 @@ import RealmSwift
 
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let obj: [Realm]? = nil
+    private var movies: [Movie] = []
 
     weak var coordinator: MainCoordinator?
+    
+    var storage: Storage?
     
     let mainView = RightView()
     
@@ -22,17 +24,31 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
         mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        registerCells()
+        fetchFavoriteMovies()
     }
     
     override func loadView() {
         super.loadView()
         view = mainView
     }
+    
+    private func registerCells() {
+       // tableView.registerFromNib(MovieCollectionViewCell.self)
+    }
+    
+    private func fetchFavoriteMovies() {
+        storage?.fetchFavoriteMovies() { [weak self] movies in
+            self?.movies = movies
+        //    self?.tableView.reloadData()
+        }
+    }
+    
     //MARK: - UITableViewDataSource methods
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // Повернення кількості рядків у таблиці
-            return obj?.count ?? 0
+            return 0
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,6 +57,41 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
             cell.textLabel?.text = "Row \(indexPath.row)"
             return cell
         }
+    
+    private func removeFromFavorites(indexPath: IndexPath) {
+        let movieId = movies[indexPath.row].id
+        storage?.delete(movieId: movieId) { [weak self] result in
+//            switch result {
+//            case .success:
+//                ProgressHUD.liveIcon(icon: .succeed)
+//              //  self?.deleteMovie(indexPath: indexPath)
+//            case .failure:
+//                ProgressHUD.liveIcon(icon: .failed)
+//            }
+        }
+    }
+    
+//    private func deleteMovie(indexPath: IndexPath) {
+//        movies.remove(at: indexPath.row)
+//        
+//        tableView.beginUpdates()
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//        tableView.endUpdates()
+//    }
+    
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let removeFromFavoritesAction = UIContextualAction(style: .normal, title: "", handler: { [weak self] (_, _, completionHandler) in
+            self?.removeFromFavorites(indexPath: indexPath)
+            completionHandler(true)
+        })
+        removeFromFavoritesAction.backgroundColor = .systemPink
+        removeFromFavoritesAction.image = UIImage(systemName: "trash")
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [removeFromFavoritesAction])
+        return swipeConfiguration
+    }
+
 
         //MARK: - UITableViewDelegate methods
 

@@ -45,6 +45,7 @@
 		84FF14A62B876B700065D404 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14A52B876B700065D404 /* MainCoordinator.swift */; };
 		84FF14A82B8D34650065D404 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14A72B8D34650065D404 /* Storyboarded.swift */; };
 		84FF14AD2B90E45A0065D404 /* HorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14AC2B90E45A0065D404 /* HorizontalCell.swift */; };
+		84FF14B02B98A6600065D404 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84FF14AF2B98A6600065D404 /* ProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 				845400942B63270000508875 /* Alamofire in Frameworks */,
 				845400992B63282800508875 /* SDWebImageMapKit in Frameworks */,
 				8454008F2B63261200508875 /* SnapKit in Frameworks */,
+				84FF14B02B98A6600065D404 /* ProgressHUD in Frameworks */,
 				845400972B63282800508875 /* SDWebImage in Frameworks */,
 				845400912B63261200508875 /* SnapKit-Dynamic in Frameworks */,
 				8454009C2B6328FB00508875 /* Lottie in Frameworks */,
@@ -300,6 +302,7 @@
 				845400C92B6D8F8000508875 /* Realm */,
 				845400CB2B6D8F8000508875 /* RealmSwift */,
 				846CF6D92B74293100C4277B /* YouTubeiOSPlayerHelper */,
+				84FF14AF2B98A6600065D404 /* ProgressHUD */,
 			);
 			productName = MyProjectApp;
 			productReference = 845400762B6325B600508875 /* MyProjectApp.app */;
@@ -336,6 +339,7 @@
 				8454009A2B6328FB00508875 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				845400C82B6D8F8000508875 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				846CF6D82B74293100C4277B /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				84FF14AE2B98A6600065D404 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 845400772B6325B600508875 /* Products */;
 			projectDirPath = "";
@@ -662,6 +666,14 @@
 				minimumVersion = 1.0.4;
 			};
 		};
+		84FF14AE2B98A6600065D404 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -709,6 +721,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 846CF6D82B74293100C4277B /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
 			productName = YouTubeiOSPlayerHelper;
+		};
+		84FF14AF2B98A6600065D404 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84FF14AE2B98A6600065D404 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -15,12 +15,11 @@ class MainCoordinator: Coordinator {
         self.navigationController = navigationController
     }
 
-    //LeftView
     func start() {
         let storage: Storage = StorageImpl()
-        let genersViewController = LeftViewController.instantiate()
-        genersViewController.coordinator = self
-        navigationController.pushViewController(genersViewController, animated: false)
+        let leftViewController = LeftViewController.instantiate()
+        leftViewController.coordinator = self
+        navigationController.pushViewController(leftViewController, animated: false)
     }
     
     func showDetails(id: Int) {
@@ -29,11 +28,10 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(detailsViewController, animated: true)
     }
     
-    //RightView
-    func showMovieList(movieList: MovieList) {
-        let movieListViewController = RightViewController.instantiate()
-        movieListViewController.coordinator = self
-        navigationController.pushViewController(movieListViewController, animated: true)
+    func showRightViewController(movieList: MovieList) {
+        let rightViewController = RightViewController.instantiate()
+        rightViewController.coordinator = self
+        navigationController.pushViewController(rightViewController, animated: true)
     }
     
    
