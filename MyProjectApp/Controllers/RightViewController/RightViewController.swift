@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let obj: [Realm]? = nil
 
     weak var coordinator: MainCoordinator?
     
@@ -29,7 +32,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // Повернення кількості рядків у таблиці
-            return 10
+            return obj?.count ?? 0
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

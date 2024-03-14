@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
@@ -21,6 +22,8 @@ class DetailsViewController: UIViewController {
         
         mainView.backButton.addTarget(self, action: #selector(backButtonTaped), for: .touchUpInside)
         
+        mainView.saveButton.addTarget(self, action: #selector(saveDetails), for: .touchUpInside)
+        
         if let titleText {
             mainView.titleLabel.text = titleText
         }
@@ -33,6 +36,11 @@ class DetailsViewController: UIViewController {
     
     @objc
     func backButtonTaped() {
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func saveDetails() {
+        print(movie?.title ?? "No data")
     }
 }

@@ -51,7 +51,8 @@ class DetailsView: UIView{
     
     let saveButton: UIButton = {
         let obj = UIButton()
-        
+        obj.setTitle("Save Button", for: .normal)
+        obj.backgroundColor = .yellow
         return obj
     }()
     
@@ -72,6 +73,14 @@ class DetailsView: UIView{
         containerView.addSubview(titleLabel)
         containerView.addSubview(dateLabel)
         containerView.addSubview(descriptionLabel)
+        containerView.addSubview(saveButton)
+    }
+    
+    func setupUI(model: Movie) {
+        titleLabel.text = model.title
+        descriptionLabel.text = model.overview
+        dateLabel.text = model.releaseDate ?? ""
+        
     }
     
     private func makeConstraints(){
@@ -107,6 +116,12 @@ class DetailsView: UIView{
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(10)
             make.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        saveButton.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(20)
+            make.size.equalTo(150)
+            make.centerX.equalToSuperview()
         }
     }
     
