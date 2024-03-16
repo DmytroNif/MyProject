@@ -6,15 +6,19 @@
 //
 
 import UIKit
+import ProgressHUD
 
 class LeftViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
     
+    private var movieList: [MovieList] = []
     let genresData = Genre.allCases
     
     let mainView = LeftView()
     let meneger = NetworkManager()
+    var storage: Storage?
+    
     
     var movies: [Movie] = []
     
@@ -58,7 +62,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.didSelectItem = { [weak self] movie in
             let movieDetailsViewController = DetailsViewController()
             movieDetailsViewController.movie = movie
-            movieDetailsViewController.mainView.setupUI(model: movie)
+            movieDetailsViewController.mainView.setupUI(model: MovieDetails)
 //            self?.present(movieDetailsViewController, animated: true, completion: nil)
             self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
         }
@@ -66,6 +70,18 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
 
+
+//    private func getMovie(indexPath: IndexPath) -> Movie {
+//        let movie = movieList[indexPath.section].previewMovies[indexPath.row]
+//        return movie
+//    }
+//    
+//    private func addToFavorites(indexPath: IndexPath) {
+//        let movie = getMovie(indexPath: indexPath)
+//        storage?.save(movie: movie) {
+//            ProgressHUD.liveIcon(icon: .added)
+//        }
+//    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Genre.allCases.count
@@ -90,6 +106,8 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 9)
     }
+    
+    
 }
 
 

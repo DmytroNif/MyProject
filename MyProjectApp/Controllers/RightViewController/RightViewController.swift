@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import ProgressHUD
 
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -48,7 +49,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             // Повернення кількості рядків у таблиці
-            return 0
+            return movies.count
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,14 +82,14 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     
      func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let removeFromFavoritesAction = UIContextualAction(style: .normal, title: "", handler: { [weak self] (_, _, completionHandler) in
+        let removeFromSavedAction = UIContextualAction(style: .normal, title: "", handler: { [weak self] (_, _, completionHandler) in
             self?.removeFromFavorites(indexPath: indexPath)
             completionHandler(true)
         })
-        removeFromFavoritesAction.backgroundColor = .systemPink
-        removeFromFavoritesAction.image = UIImage(systemName: "trash")
+         removeFromSavedAction.backgroundColor = .systemPink
+         removeFromSavedAction.image = UIImage(systemName: "trash")
         
-        let swipeConfiguration = UISwipeActionsConfiguration(actions: [removeFromFavoritesAction])
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [removeFromSavedAction])
         return swipeConfiguration
     }
 

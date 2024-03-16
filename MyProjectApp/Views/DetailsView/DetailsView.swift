@@ -14,7 +14,7 @@ class DetailsView: UIView{
     
     let containerView: UIView = {
         let obj = UIView()
-        obj.backgroundColor = .darkGray
+        obj.backgroundColor = .white
         return obj
     }()
     
@@ -51,8 +51,8 @@ class DetailsView: UIView{
     
     let saveButton: UIButton = {
         let obj = UIButton()
-        obj.setTitle("Save Button", for: .normal)
-        obj.backgroundColor = .yellow
+        obj.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        obj.tintColor = .black
         return obj
     }()
     
@@ -76,11 +76,19 @@ class DetailsView: UIView{
         containerView.addSubview(saveButton)
     }
     
-    func setupUI(model: Movie) {
+    func setupUI(model: MovieDetails) {
         titleLabel.text = model.title
         descriptionLabel.text = model.overview
-        dateLabel.text = model.releaseDate ?? ""
+        dateLabel.text = model.releaseDate 
         
+        if let videoId = model.videos.movies.first?.key {
+               youtubePlayer.load(withVideoId: videoId)
+           } else {
+               // Якщо відео відсутнє, ви можете здійснити дії за замовчуванням або приховати плеєр.
+               // Наприклад, тут я приховую плеєр:
+               youtubePlayer.isHidden = true
+           }
+
     }
     
     private func makeConstraints(){
@@ -119,9 +127,9 @@ class DetailsView: UIView{
         }
         
         saveButton.snp.makeConstraints { make in
-            make.bottom.equalToSuperview().inset(20)
-            make.size.equalTo(150)
-            make.centerX.equalToSuperview()
+            make.trailing.equalToSuperview().inset(10)
+            make.size.equalTo(50)
+            make.centerY.equalToSuperview().offset(30)
         }
     }
     

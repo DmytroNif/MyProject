@@ -7,12 +7,15 @@
 
 import UIKit
 import RealmSwift
+import ProgressHUD
+import YouTubeiOSPlayerHelper
 
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
-
-    var movie: Movie? 
-
+    private var movieList: [MovieList] = []
+    var movieDetails = MovieDetails.self
+    var movie: Movie?
+    var storage: Storage?
     weak var coordinator: MainCoordinator?
     
     var titleText: String?
@@ -27,6 +30,8 @@ class DetailsViewController: UIViewController {
         if let titleText {
             mainView.titleLabel.text = titleText
         }
+        
+        mainView.setupUI(model: movieDetails)
     }
     
     override func loadView() {
@@ -43,4 +48,17 @@ class DetailsViewController: UIViewController {
     func saveDetails() {
         print(movie?.title ?? "No data")
     }
+    
+    private func getMovie(indexPath: IndexPath) -> Movie {
+            let movie = movieList[indexPath.section].previewMovies[indexPath.row]
+            return movie
+        }
+    
+    @objc
+    func addToFavorites(indexPath: IndexPath) {
+            let movie = getMovie(indexPath: indexPath)
+            storage?.save(movie: movie) {
+                ProgressHUD.liveIcon(icon: .added)
+            }
+        }
 }
