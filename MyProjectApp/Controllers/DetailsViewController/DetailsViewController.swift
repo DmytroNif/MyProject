@@ -31,7 +31,7 @@ class DetailsViewController: UIViewController {
             mainView.titleLabel.text = titleText
         }
         
-        mainView.setupUI(model: movieDetails)
+//        mainView.setupUI(model: movieDetails)
     }
     
     override func loadView() {

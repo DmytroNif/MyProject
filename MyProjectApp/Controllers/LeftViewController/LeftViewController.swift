@@ -62,9 +62,19 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.didSelectItem = { [weak self] movie in
             let movieDetailsViewController = DetailsViewController()
             movieDetailsViewController.movie = movie
-            movieDetailsViewController.mainView.setupUI(model: MovieDetails)
-//            self?.present(movieDetailsViewController, animated: true, completion: nil)
-            self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
+            
+            NetworkManager().getDetails(id: movie.id) { result in
+                
+                switch result {
+                    
+                case .success(let movie):
+                    movieDetailsViewController.mainView.setupUI(model: movie)
+                    self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
+                case .failure(_):
+                    print("Can't get data")
+                }
+            }
+           
         }
         
         return cell
