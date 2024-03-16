@@ -19,7 +19,7 @@ class DetailsView: UIView{
     }()
     
     lazy var backButton: UIButton = {
-       let obj = UIButton()
+        let obj = UIButton()
         
         obj.setTitle("Back", for: .normal)
         return obj
@@ -45,7 +45,8 @@ class DetailsView: UIView{
     
     let descriptionLabel: UILabel = {
         let obj = UILabel()
-        
+        obj.numberOfLines = 0
+        obj.textAlignment = .center
         return obj
     }()
     
@@ -79,16 +80,13 @@ class DetailsView: UIView{
     func setupUI(model: MovieDetails) {
         titleLabel.text = model.title
         descriptionLabel.text = model.overview
-        dateLabel.text = model.releaseDate 
+        dateLabel.text = model.releaseDate
         
         if let videoId = model.videos.movies.first?.key {
-               youtubePlayer.load(withVideoId: videoId)
-           } else {
-               // Якщо відео відсутнє, ви можете здійснити дії за замовчуванням або приховати плеєр.
-               // Наприклад, тут я приховую плеєр:
-               youtubePlayer.isHidden = true
-           }
-
+            youtubePlayer.load(withVideoId: videoId)
+        } else {
+            youtubePlayer.isHidden = true
+        }
     }
     
     private func makeConstraints(){
@@ -102,11 +100,9 @@ class DetailsView: UIView{
         }
         
         youtubePlayer.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.width.equalTo(300)
-            make.centerX.equalToSuperview().offset(0)
-            make.centerY.equalToSuperview().offset(-350)
+            make.height.equalTo(400)
             make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
@@ -123,7 +119,8 @@ class DetailsView: UIView{
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom).offset(10)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview()
         }
         
         saveButton.snp.makeConstraints { make in

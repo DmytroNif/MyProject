@@ -13,7 +13,7 @@ import YouTubeiOSPlayerHelper
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
     private var movieList: [MovieList] = []
-    var movieDetails = MovieDetails.self
+    var movieDetails: MovieDetails?
     var movie: Movie?
     var storage: Storage?
     weak var coordinator: MainCoordinator?
