@@ -93,7 +93,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HorizontalCell", for: indexPath) as! HorizontalCell
-        cell.backgroundColor = .green
+        cell.backgroundColor = .black
         
 //        if let model = model[indexPath.row] {
         cell.setupCell(model: movies[indexPath.row])
