@@ -12,7 +12,6 @@ import YouTubeiOSPlayerHelper
 
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
-    private var movieList: [MovieList] = []
     var movieDetails: MovieDetails?
     var movie: Movie?
     var storage: Storage?
@@ -22,8 +21,6 @@ class DetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         
         mainView.saveButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
         
@@ -45,18 +42,14 @@ class DetailsViewController: UIViewController {
     func saveDetails() {
         print(movie?.title ?? "No data")
     }
-    
-    private func getMovie(indexPath: IndexPath) -> Movie {
-            let movie = movieList[indexPath.section].previewMovies[indexPath.row]
-            return movie
-        }
-    
+
     @objc
-    func addToFavorites(indexPath: IndexPath) {
-            let movie = getMovie(indexPath: indexPath)
+    func addToFavorites() {
+        if let movie = self.movie {
             storage?.save(movie: movie) {
                 ProgressHUD.liveIcon(icon: .added)
                 print(movie.title )
             }
+        }
         }
 }

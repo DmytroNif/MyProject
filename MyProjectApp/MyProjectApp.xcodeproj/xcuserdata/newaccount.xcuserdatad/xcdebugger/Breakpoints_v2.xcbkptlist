@@ -100,5 +100,324 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FB83F30E-D997-48F9-8B07-2588DAD8750E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/DetailsViewController/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "addToFavorites()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FB83F30E-D997-48F9-8B07-2588DAD8750E - 743d8fc457c6d8cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  uuid = "FB83F30E-D997-48F9-8B07-2588DAD8750E - 743d8fc457c6d8cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "114">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADC03B81-CE84-4E9E-8760-BA610C5580D0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/DetailsViewController/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "addToFavorites()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ADC03B81-CE84-4E9E-8760-BA610C5580D0 - 743d8fc457c6d8e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "138">
+               </Location>
+               <Location
+                  uuid = "ADC03B81-CE84-4E9E-8760-BA610C5580D0 - 53285bbca6ab6f1d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "34">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2360E262-AB52-4089-AEAA-2146CB36DB20"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/DetailsViewController/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "addToFavorites()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "17F767A3-935F-44B2-9E43-9A2C8AEAA21E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/DetailsViewController/DetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "addToFavorites()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13688B75-0AC7-42AD-AFA5-2D9D65CF5C29"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/RightViewController/RightViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "fetchFavoriteMovies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "13688B75-0AC7-42AD-AFA5-2D9D65CF5C29 - 2f890a02e412c6b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;MyProjectApp.Movie&gt;) -&gt; () in MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "209">
+               </Location>
+               <Location
+                  uuid = "13688B75-0AC7-42AD-AFA5-2D9D65CF5C29 - 2f890a02e412c6b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;MyProjectApp.Movie&gt;) -&gt; () in MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "77">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A190FB7-C383-43DC-A54A-55CB03FB0CE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/RightViewController/RightViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fetchFavoriteMovies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0A190FB7-C383-43DC-A54A-55CB03FB0CE5 - 2f890a02e412c696"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;MyProjectApp.Movie&gt;) -&gt; () in MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  uuid = "0A190FB7-C383-43DC-A54A-55CB03FB0CE5 - 93a184bdadbdb15b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "0A190FB7-C383-43DC-A54A-55CB03FB0CE5 - 2f890a02e412c696"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;MyProjectApp.Movie&gt;) -&gt; () in MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50C767F9-8736-4BF7-A246-95090A9D3D19"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/Storage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchFavoriteMovies(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70233F96-0508-4D96-9768-1F71468ADFBC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/Storage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "save(movie:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70233F96-0508-4D96-9768-1F71468ADFBC - c019dad89d25abaf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.StorageImpl.save(movie: MyProjectApp.Movie, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Managers/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "473">
+               </Location>
+               <Location
+                  uuid = "70233F96-0508-4D96-9768-1F71468ADFBC - bc2f64a51496012b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in MyProjectApp.StorageImpl.save(movie: MyProjectApp.Movie, completion: () -&gt; ()) -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Managers/Storage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "77">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F284125-7B74-4503-9325-7618ECE4330C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Managers/Storage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "save(movie:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

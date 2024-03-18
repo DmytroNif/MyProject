@@ -74,24 +74,24 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
                     print("Can't get data")
                 }
             }
-           
+            
         }
         
         return cell
     }
-
-
-//    private func getMovie(indexPath: IndexPath) -> Movie {
-//        let movie = movieList[indexPath.section].previewMovies[indexPath.row]
-//        return movie
-//    }
-//    
-//    private func addToFavorites(indexPath: IndexPath) {
-//        let movie = getMovie(indexPath: indexPath)
-//        storage?.save(movie: movie) {
-//            ProgressHUD.liveIcon(icon: .added)
-//        }
-//    }
+    
+    
+    //    private func getMovie(indexPath: IndexPath) -> Movie {
+    //        let movie = movieList[indexPath.section].previewMovies[indexPath.row]
+    //        return movie
+    //    }
+    //
+    //    private func addToFavorites(indexPath: IndexPath) {
+    //        let movie = getMovie(indexPath: indexPath)
+    //        storage?.save(movie: movie) {
+    //            ProgressHUD.liveIcon(icon: .added)
+    //        }
+    //    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Genre.allCases.count

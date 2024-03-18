@@ -25,6 +25,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         registerCells()
         fetchFavoriteMovies()
+
     }
     
     override func loadView() {
