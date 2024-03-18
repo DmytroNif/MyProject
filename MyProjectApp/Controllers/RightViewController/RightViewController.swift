@@ -34,13 +34,13 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func registerCells() {
-        tableView.registerFromNib(MovieTableViewCell.self)
+        mainView.tableView.register(MovieTableViewCell.self)
     }
     
     private func fetchFavoriteMovies() {
         storage?.fetchFavoriteMovies() { [weak self] movies in
             self?.movies = movies
-           self?.tableView.reloadData()
+            self?.mainView.tableView.reloadData()
         }
     }
     

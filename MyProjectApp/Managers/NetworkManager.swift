@@ -14,7 +14,6 @@ class NetworkManager {
         AF.request(endpoint)
             .validate()
             .responseDecodable(of: T.self) { response in
-                print(response.debugDescription)
                 switch response.result {
                 case .success(let model):
                     completion(.success(model))
