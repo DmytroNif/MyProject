@@ -13,7 +13,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     private var movies: [Movie] = []
     
-    var storage: Storage?
+    var storage = StorageImpl()
     
     let mainView = RightView()
     
@@ -39,7 +39,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func fetchFavoriteMovies() {
-        storage?.fetchFavoriteMovies() { [weak self] movies in
+        storage.fetchFavoriteMovies() { [weak self] movies in
             self?.movies = movies
             self?.mainView.tableView.reloadData()
         }
@@ -61,7 +61,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     private func removeFromFavorites(indexPath: IndexPath) {
         let movieId = movies[indexPath.row].id
-        storage?.delete(movieId: movieId) { [weak self] result in
+        storage.delete(movieId: movieId) { [weak self] result in
 //            switch result {
 //            case .success:
 //                ProgressHUD.liveIcon(icon: .succeed)
