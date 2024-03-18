@@ -17,7 +17,7 @@ class LeftViewController: UIViewController {
     
     let mainView = LeftView()
     let meneger = NetworkManager()
-    var storage: Storage?
+    var storage = StorageImpl()
     
     
     var movies: [Movie] = []

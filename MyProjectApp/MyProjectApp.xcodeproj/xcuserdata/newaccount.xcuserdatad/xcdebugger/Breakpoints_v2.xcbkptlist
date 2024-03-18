@@ -145,6 +145,21 @@
                   endingLineNumber = "48"
                   offsetFromSymbolStart = "114">
                </Location>
+               <Location
+                  uuid = "FB83F30E-D997-48F9-8B07-2588DAD8750E - 743d8fc457c6d8cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "140">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -192,6 +207,21 @@
                   startingLineNumber = "50"
                   endingLineNumber = "50"
                   offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  uuid = "ADC03B81-CE84-4E9E-8760-BA610C5580D0 - 743d8fc457c6d8e8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "145">
                </Location>
             </Locations>
          </BreakpointContent>

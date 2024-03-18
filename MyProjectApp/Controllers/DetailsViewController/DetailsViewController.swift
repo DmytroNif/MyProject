@@ -14,7 +14,7 @@ class DetailsViewController: UIViewController {
     let mainView = DetailsView()
     var movieDetails: MovieDetails?
     var movie: Movie?
-    var storage: Storage?
+    var storage = StorageImpl()
     weak var coordinator: MainCoordinator?
     
     var titleText: String?
@@ -46,7 +46,7 @@ class DetailsViewController: UIViewController {
     @objc
     func addToFavorites() {
         if let movie = self.movie {
-            storage?.save(movie: movie) {
+            storage.save(movie: movie) {
                 ProgressHUD.liveIcon(icon: .added)
                 print(movie.title )
             }
