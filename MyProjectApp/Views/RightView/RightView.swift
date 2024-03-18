@@ -22,7 +22,8 @@ class RightView: UIView{
     let headerLabel: UILabel = {
         let obj = UILabel()
         obj.textColor = .black
-        obj.font = UIFont.preferredFont(forTextStyle: .headline)
+        obj.text = "Saved"
+        obj.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40)
         return obj
     }()
     
@@ -44,8 +45,8 @@ class RightView: UIView{
     
     private func addSubviews(){
         self.addSubview(containerView)
-//        containerView.addSubview(search)
         containerView.addSubview(tableView)
+        containerView.addSubview(headerLabel)
     }
     
     private func makeConstraints(){
@@ -56,6 +57,12 @@ class RightView: UIView{
         
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(containerView)
+        }
+        
+        headerLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(safeAreaInsets.bottom).offset(50)
+            
         }
     }
     private func RightSetup() {

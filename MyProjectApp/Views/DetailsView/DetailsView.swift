@@ -52,7 +52,7 @@ class DetailsView: UIView{
     
     let saveButton: UIButton = {
         let obj = UIButton()
-        obj.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        obj.setImage(UIImage(systemName: "bookmark"), for: .normal)
         obj.tintColor = .black
         return obj
     }()

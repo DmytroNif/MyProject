@@ -12,8 +12,6 @@ import ProgressHUD
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var movies: [Movie] = []
-
-    weak var coordinator: MainCoordinator?
     
     var storage: Storage?
     
@@ -32,16 +30,17 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func loadView() {
         super.loadView()
         view = mainView
+        
     }
     
     private func registerCells() {
-       // tableView.registerFromNib(MovieCollectionViewCell.self)
+        tableView.registerFromNib(MovieTableViewCell.self)
     }
     
     private func fetchFavoriteMovies() {
         storage?.fetchFavoriteMovies() { [weak self] movies in
             self?.movies = movies
-        //    self?.tableView.reloadData()
+           self?.tableView.reloadData()
         }
     }
     

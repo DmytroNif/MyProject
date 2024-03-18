@@ -46,6 +46,9 @@
 		84FF14A82B8D34650065D404 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14A72B8D34650065D404 /* Storyboarded.swift */; };
 		84FF14AD2B90E45A0065D404 /* HorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14AC2B90E45A0065D404 /* HorizontalCell.swift */; };
 		84FF14B02B98A6600065D404 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 84FF14AF2B98A6600065D404 /* ProgressHUD */; };
+		84FF14D32BA64BAF0065D404 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D22BA64BAF0065D404 /* protocol.swift */; };
+		84FF14D72BA64D100065D404 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D62BA64D100065D404 /* TableViewCell.swift */; };
+		84FF14D92BA64DA00065D404 /* UIPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D82BA64DA00065D404 /* UIPoster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		84FF14A52B876B700065D404 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		84FF14A72B8D34650065D404 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		84FF14AC2B90E45A0065D404 /* HorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalCell.swift; sourceTree = "<group>"; };
+		84FF14D22BA64BAF0065D404 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
+		84FF14D62BA64D100065D404 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		84FF14D82BA64DA00065D404 /* UIPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPoster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 		845400782B6325B600508875 /* MyProjectApp */ = {
 			isa = PBXGroup;
 			children = (
+				84FF14D12BA64B920065D404 /* Extension */,
 				84FF14A92B90E4050065D404 /* Cells */,
 				84FF14A22B876B1D0065D404 /* Navigation */,
 				845400AC2B68501300508875 /* API */,
@@ -254,6 +261,7 @@
 		84FF14A92B90E4050065D404 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				84FF14D42BA64CE00065D404 /* TableViewCell */,
 				84FF14AB2B90E43A0065D404 /* HorizontalCell */,
 				84FF14AA2B90E4130065D404 /* MovieCollectionViewCell */,
 			);
@@ -274,6 +282,23 @@
 				84FF14AC2B90E45A0065D404 /* HorizontalCell.swift */,
 			);
 			path = HorizontalCell;
+			sourceTree = "<group>";
+		};
+		84FF14D12BA64B920065D404 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				84FF14D22BA64BAF0065D404 /* protocol.swift */,
+				84FF14D82BA64DA00065D404 /* UIPoster.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		84FF14D42BA64CE00065D404 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				84FF14D62BA64D100065D404 /* TableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,6 +398,8 @@
 				84FF14A82B8D34650065D404 /* Storyboarded.swift in Sources */,
 				84FF14AD2B90E45A0065D404 /* HorizontalCell.swift in Sources */,
 				845400AA2B682C4B00508875 /* HeaderVIew.swift in Sources */,
+				84FF14D72BA64D100065D404 /* TableViewCell.swift in Sources */,
+				84FF14D92BA64DA00065D404 /* UIPoster.swift in Sources */,
 				845400C52B6AA65100508875 /* ItemModel.swift in Sources */,
 				8454009E2B63F2EC00508875 /* LeftViewController.swift in Sources */,
 				845400A02B63F40500508875 /* RightViewController.swift in Sources */,
@@ -381,6 +408,7 @@
 				845400B62B6850D400508875 /* MovieList.swift in Sources */,
 				8454007A2B6325B600508875 /* AppDelegate.swift in Sources */,
 				845400A62B64701800508875 /* LeftView.swift in Sources */,
+				84FF14D32BA64BAF0065D404 /* protocol.swift in Sources */,
 				8454007C2B6325B600508875 /* SceneDelegate.swift in Sources */,
 				846CF6DE2B7429F700C4277B /* DetailsViewController.swift in Sources */,
 				845400BD2B68518D00508875 /* Endpoint.swift in Sources */,

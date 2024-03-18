@@ -30,7 +30,7 @@ class MainCoordinator: Coordinator {
     
     func showRightViewController(movieList: MovieList) {
         let rightViewController = RightViewController.instantiate()
-        rightViewController.coordinator = self
+       // rightViewController.coordinator = self
         navigationController.pushViewController(rightViewController, animated: true)
     }
     

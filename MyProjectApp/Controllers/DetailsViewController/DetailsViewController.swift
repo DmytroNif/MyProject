@@ -23,9 +23,9 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainView.backButton.addTarget(self, action: #selector(backButtonTaped), for: .touchUpInside)
+
         
-        mainView.saveButton.addTarget(self, action: #selector(saveDetails), for: .touchUpInside)
+        mainView.saveButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
         
         if let titleText {
             mainView.titleLabel.text = titleText
@@ -39,10 +39,7 @@ class DetailsViewController: UIViewController {
         view = mainView
     }
     
-    @objc
-    func backButtonTaped() {
-        navigationController?.popViewController(animated: true)
-    }
+   
     
     @objc
     func saveDetails() {
@@ -59,6 +56,7 @@ class DetailsViewController: UIViewController {
             let movie = getMovie(indexPath: indexPath)
             storage?.save(movie: movie) {
                 ProgressHUD.liveIcon(icon: .added)
+                print(movie.title )
             }
         }
 }
