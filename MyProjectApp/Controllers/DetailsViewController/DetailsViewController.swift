@@ -28,7 +28,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         mainView.saveButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
-        mainView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+       // mainView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
         if let titleText {
             mainView.titleLabel.text = titleText
