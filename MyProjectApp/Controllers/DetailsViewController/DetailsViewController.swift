@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 import ProgressHUD
 import YouTubeiOSPlayerHelper
+import Lottie
 
 class DetailsViewController: UIViewController {
     let mainView = DetailsView()
@@ -18,11 +19,16 @@ class DetailsViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     
     var titleText: String?
+    
+    private var animationView: LottieAnimationView {
+            return mainView.animationView
+        }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mainView.saveButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+        mainView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
         if let titleText {
             mainView.titleLabel.text = titleText
@@ -51,5 +57,9 @@ class DetailsViewController: UIViewController {
                 print(movie.title )
             }
         }
+        }
+    @objc func saveButtonTapped() {
+            // Запускаємо анімацію при натисканні на кнопку
+            animationView.play()
         }
 }

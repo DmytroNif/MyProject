@@ -22,10 +22,10 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
-        mainView.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        mainView.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
         registerCells()
         fetchFavoriteMovies()
-
+        
     }
     
     override func loadView() {
@@ -54,8 +54,8 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             // Створення та налаштування рядка
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text = "Row \(indexPath.row)"
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
+            cell.textLabel?.text = "\(movies[indexPath.row].title)"
             return cell
         }
     
@@ -105,4 +105,5 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         }
-}
+    }
+

@@ -9,6 +9,7 @@ import Foundation
 import SnapKit
 import UIKit
 import YouTubeiOSPlayerHelper
+import Lottie
 
 class DetailsView: UIView{
     
@@ -57,6 +58,13 @@ class DetailsView: UIView{
         return obj
     }()
     
+    let animationView: LottieAnimationView = {
+            let animationView = LottieAnimationView(name: "Animation - 1710925817311.json")
+            animationView.loopMode = .playOnce // Граємо анімацію лише один раз
+            animationView.contentMode = .scaleAspectFit
+            return animationView
+        }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -75,6 +83,7 @@ class DetailsView: UIView{
         containerView.addSubview(dateLabel)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(saveButton)
+        saveButton.addSubview(animationView)
     }
     
     func setupUI(model: MovieDetails) {
@@ -127,6 +136,10 @@ class DetailsView: UIView{
             make.trailing.equalToSuperview().inset(10)
             make.size.equalTo(50)
             make.centerY.equalToSuperview().offset(30)
+        }
+        
+        animationView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     

@@ -49,6 +49,7 @@
 		84FF14D32BA64BAF0065D404 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D22BA64BAF0065D404 /* protocol.swift */; };
 		84FF14D72BA64D100065D404 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D62BA64D100065D404 /* TableViewCell.swift */; };
 		84FF14D92BA64DA00065D404 /* UIPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF14D82BA64DA00065D404 /* UIPoster.swift */; };
+		84FF14DB2BAAE2FD0065D404 /* Animation - 1710925817311.json in Resources */ = {isa = PBXBuildFile; fileRef = 84FF14DA2BAAE2FD0065D404 /* Animation - 1710925817311.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		84FF14D22BA64BAF0065D404 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		84FF14D62BA64D100065D404 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		84FF14D82BA64DA00065D404 /* UIPoster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPoster.swift; sourceTree = "<group>"; };
+		84FF14DA2BAAE2FD0065D404 /* Animation - 1710925817311.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Animation - 1710925817311.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				8454007F2B6325B600508875 /* Main.storyboard */,
 				845400822B6325B800508875 /* Assets.xcassets */,
 				845400842B6325B800508875 /* LaunchScreen.storyboard */,
+				84FF14DA2BAAE2FD0065D404 /* Animation - 1710925817311.json */,
 				845400872B6325B800508875 /* Info.plist */,
 			);
 			name = MyProjectApp;
@@ -381,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				845400862B6325B800508875 /* LaunchScreen.storyboard in Resources */,
+				84FF14DB2BAAE2FD0065D404 /* Animation - 1710925817311.json in Resources */,
 				845400832B6325B800508875 /* Assets.xcassets in Resources */,
 				845400812B6325B600508875 /* Main.storyboard in Resources */,
 			);
