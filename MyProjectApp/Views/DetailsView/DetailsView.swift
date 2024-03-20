@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 import YouTubeiOSPlayerHelper
 import Lottie
+import SDWebImage
 
 class DetailsView: UIView{
     
@@ -19,11 +20,11 @@ class DetailsView: UIView{
         return obj
     }()
     
-    lazy var backButton: UIButton = {
-        let obj = UIButton()
-        
-        obj.setTitle("Back", for: .normal)
-        return obj
+    let backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
     }()
     
     let youtubePlayer: YTPlayerView = {
@@ -77,7 +78,8 @@ class DetailsView: UIView{
     
     private func addSubviews(){
         self.addSubview(containerView)
-        containerView.addSubview(backButton)
+        containerView.addSubview(backgroundImage)
+        containerView.sendSubviewToBack(backgroundImage)
         containerView.addSubview(youtubePlayer)
         containerView.addSubview(titleLabel)
         containerView.addSubview(dateLabel)
@@ -98,13 +100,26 @@ class DetailsView: UIView{
         }
     }
     
+    func setupBackgroundImage(model: Movie){
+        let blurEffect = UIBlurEffect(style: .light)
+                let blurEffectView = UIVisualEffectView(effect: blurEffect)
+                blurEffectView.frame = containerView.bounds
+                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        containerView.addSubview(blurEffectView)
+                
+                // Додати зображення постера на фон
+        backgroundImage.image = UIImage(named: "https://image.tmdb.org/t/p/w500 + \(model.posterPath)")    // Замініть "poster_image_name" на реальне ім'я вашого зображення постера
+        backgroundImage.frame = containerView.bounds
+        backgroundImage.contentMode = .scaleAspectFill
+    }
+    
     private func makeConstraints(){
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
-        backButton.snp.makeConstraints { make in
+        backgroundImage.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
         

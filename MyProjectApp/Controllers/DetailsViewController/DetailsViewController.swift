@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController {
         if let titleText {
             mainView.titleLabel.text = titleText
         }
-        
+        mainView.setupBackgroundImage(model: movie!)
 //        mainView.setupUI(model: movieDetails)
     }
     
@@ -44,10 +44,7 @@ class DetailsViewController: UIViewController {
     
    
     
-    @objc
-    func saveDetails() {
-        print(movie?.title ?? "No data")
-    }
+
 
     @objc
     func addToFavorites() {

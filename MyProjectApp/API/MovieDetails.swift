@@ -41,6 +41,11 @@ struct MovieDetails: Codable {
     let videos: MovieVideos
     let genres: [MovieGenre]
     
+    var imageURL: URL? {
+        let baseURL = "https://image.tmdb.org/t/p/w500"
+        return URL(string: baseURL + posterPath)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title = "original_title"
         case overview = "overview"
