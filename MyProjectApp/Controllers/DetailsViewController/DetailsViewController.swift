@@ -33,7 +33,7 @@ class DetailsViewController: UIViewController {
         if let titleText {
             mainView.titleLabel.text = titleText
         }
-        mainView.setupBackgroundImage(model: movie!)
+//        mainView.seztupBackgroundImage(model: movie!)
 //        mainView.setupUI(model: movieDetails)
     }
     
@@ -41,16 +41,13 @@ class DetailsViewController: UIViewController {
         super.loadView()
         view = mainView
     }
-    
-   
-    
-
-
+  
     @objc
     func addToFavorites() {
         if let movie = self.movie {
             storage.save(movie: movie) {
                 ProgressHUD.liveIcon(icon: .added)
+                self.mainView.animationView.play()
                 print(movie.title )
             }
         }

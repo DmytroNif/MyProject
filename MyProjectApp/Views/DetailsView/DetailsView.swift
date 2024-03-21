@@ -5,14 +5,13 @@
 //  Created by admin on 07/02/2024.
 //
 
-import Foundation
-import SnapKit
 import UIKit
+import SnapKit
 import YouTubeiOSPlayerHelper
 import Lottie
 import SDWebImage
 
-class DetailsView: UIView{
+class DetailsView: UIView {
     
     let containerView: UIView = {
         let obj = UIView()
@@ -27,21 +26,24 @@ class DetailsView: UIView{
         return imageView
     }()
     
+    let blureView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .regular)
+        let obj = UIVisualEffectView(effect: blurEffect)
+        return obj
+    }()
+    
     let youtubePlayer: YTPlayerView = {
         let obj = YTPlayerView()
-        
         return obj
     }()
     
     let titleLabel: UILabel = {
         let obj = UILabel()
-        
         return obj
     }()
     
     let dateLabel: UILabel = {
         let obj = UILabel()
-        
         return obj
     }()
     
@@ -60,15 +62,15 @@ class DetailsView: UIView{
     }()
     
     let animationView: LottieAnimationView = {
-            let animationView = LottieAnimationView(name: "Animation - 1710925817311.json")
-            animationView.loopMode = .playOnce // Граємо анімацію лише один раз
-            animationView.contentMode = .scaleAspectFit
-            return animationView
-        }()
+        let animationView = LottieAnimationView(name: "Animation - 1710925817311")
+        animationView.loopMode = .playOnce
+        animationView.contentMode = .scaleAspectFit
+        animationView.isUserInteractionEnabled = false
+        return animationView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         DetailsSetup()
     }
     
@@ -76,10 +78,10 @@ class DetailsView: UIView{
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubviews(){
+    private func addSubviews() {
         self.addSubview(containerView)
         containerView.addSubview(backgroundImage)
-        containerView.sendSubviewToBack(backgroundImage)
+        backgroundImage.addSubview(blureView)
         containerView.addSubview(youtubePlayer)
         containerView.addSubview(titleLabel)
         containerView.addSubview(dateLabel)
@@ -93,6 +95,8 @@ class DetailsView: UIView{
         descriptionLabel.text = model.overview
         dateLabel.text = model.releaseDate
         
+        backgroundImage.sd_setImage(with: model.imageURL)
+        
         if let videoId = model.videos.movies.first?.key {
             youtubePlayer.load(withVideoId: videoId)
         } else {
@@ -100,27 +104,17 @@ class DetailsView: UIView{
         }
     }
     
-    func setupBackgroundImage(model: Movie){
-        let blurEffect = UIBlurEffect(style: .light)
-                let blurEffectView = UIVisualEffectView(effect: blurEffect)
-                blurEffectView.frame = containerView.bounds
-                blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        containerView.addSubview(blurEffectView)
-                
-                // Додати зображення постера на фон
-        backgroundImage.image = UIImage(named: "https://image.tmdb.org/t/p/w500 + \(model.posterPath)")    // Замініть "poster_image_name" на реальне ім'я вашого зображення постера
-        backgroundImage.frame = containerView.bounds
-        backgroundImage.contentMode = .scaleAspectFill
-    }
-    
-    private func makeConstraints(){
-        
+    private func makeConstraints() {
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
         
         backgroundImage.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.edges.equalToSuperview()
+        }
+        
+        blureView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
         youtubePlayer.snp.makeConstraints { make in
