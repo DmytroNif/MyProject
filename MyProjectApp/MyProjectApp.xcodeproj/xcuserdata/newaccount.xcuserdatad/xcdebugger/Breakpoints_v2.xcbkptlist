@@ -160,6 +160,21 @@
                   endingLineNumber = "49"
                   offsetFromSymbolStart = "145">
                </Location>
+               <Location
+                  uuid = "ADC03B81-CE84-4E9E-8760-BA610C5580D0 - 743d8fc457c6d8aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "46">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -193,6 +208,38 @@
             endingLineNumber = "47"
             landmarkName = "addToFavorites()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "17F767A3-935F-44B2-9E43-9A2C8AEAA21E - 743d8fc457c6d8aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "46">
+               </Location>
+               <Location
+                  uuid = "17F767A3-935F-44B2-9E43-9A2C8AEAA21E - 743d8fc457c6d8aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.DetailsViewController.addToFavorites() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/DetailsViewController/DetailsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -303,6 +350,21 @@
                   endingLineNumber = "42"
                   offsetFromSymbolStart = "65">
                </Location>
+               <Location
+                  uuid = "0A190FB7-C383-43DC-A54A-55CB03FB0CE5 - 93a184bdadbdb15b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.RightViewController.fetchFavoriteMovies() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "26">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -384,6 +446,102 @@
             endingLineNumber = "37"
             landmarkName = "save(movie:completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54DA5214-2D3B-4A8A-A5A0-3B381496D969"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/LeftViewController/LeftViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "segmentControlTaped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "54DA5214-2D3B-4A8A-A5A0-3B381496D969 - 7541f056dc37eef7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.LeftViewController.segmentControlTaped() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/LeftViewController/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  uuid = "54DA5214-2D3B-4A8A-A5A0-3B381496D969 - 7541f056dc37ee16"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.LeftViewController.segmentControlTaped() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/LeftViewController/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "175">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CCDF0DA3-E9A1-408B-99D5-F238EF8EE49B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/LeftViewController/LeftViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "segmentControlTaped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CCDF0DA3-E9A1-408B-99D5-F238EF8EE49B - 7541f056dc37eeb1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.LeftViewController.segmentControlTaped() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/LeftViewController/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "130">
+               </Location>
+               <Location
+                  uuid = "CCDF0DA3-E9A1-408B-99D5-F238EF8EE49B - 7541f056dc37eed0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.LeftViewController.segmentControlTaped() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/LeftViewController/LeftViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "421">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
