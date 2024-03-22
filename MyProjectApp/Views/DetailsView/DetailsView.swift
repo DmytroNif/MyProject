@@ -61,8 +61,16 @@ class DetailsView: UIView {
         return obj
     }()
     
-    let animationView: LottieAnimationView = {
+    let firstAnimationView: LottieAnimationView = {
         let animationView = LottieAnimationView(name: "Animation - 1710925817311")
+        animationView.loopMode = .playOnce
+        animationView.contentMode = .scaleAspectFit
+        animationView.isUserInteractionEnabled = false
+        return animationView
+    }()
+    
+    let secondAnimationView: LottieAnimationView = {
+        let animationView = LottieAnimationView(name: "Animation - 1711115407186")
         animationView.loopMode = .playOnce
         animationView.contentMode = .scaleAspectFit
         animationView.isUserInteractionEnabled = false
@@ -87,7 +95,8 @@ class DetailsView: UIView {
         containerView.addSubview(dateLabel)
         containerView.addSubview(descriptionLabel)
         containerView.addSubview(saveButton)
-        saveButton.addSubview(animationView)
+        saveButton.addSubview(firstAnimationView)
+        saveButton.addSubview(secondAnimationView)
     }
     
     func setupUI(model: MovieDetails) {
@@ -147,7 +156,11 @@ class DetailsView: UIView {
             make.centerY.equalToSuperview().offset(30)
         }
         
-        animationView.snp.makeConstraints { make in
+        firstAnimationView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        secondAnimationView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
