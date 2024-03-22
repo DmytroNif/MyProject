@@ -22,6 +22,8 @@ enum Endpoint: URLRequestConvertible {
             return "/discover/movie"
         case .details(let id):
             return "/movie/\(id)"
+     //   case .popularTV:
+         //   return "/discover/TV"
         }
     }
     

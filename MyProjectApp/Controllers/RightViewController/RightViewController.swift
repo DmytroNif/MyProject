@@ -34,6 +34,12 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchFavoriteMovies()
+    }
+
+    
     private func registerCells() {
         mainView.tableView.register(MovieTableViewCell.self)
     }
