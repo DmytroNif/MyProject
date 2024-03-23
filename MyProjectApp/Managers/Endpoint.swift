@@ -13,6 +13,9 @@ enum Endpoint: URLRequestConvertible {
     case discover(genre: Int, page: Int)
     case popular(page: Int)
     case details(id: Int)
+//    case discoverTV(genre: Int, page: Int)
+//    case popularTV(page: Int)
+//    case detailsTV(id: Int)
     
     var path: String {
         switch self {
@@ -22,8 +25,12 @@ enum Endpoint: URLRequestConvertible {
             return "/discover/movie"
         case .details(let id):
             return "/movie/\(id)"
-     //   case .popularTV:
-         //   return "/discover/TV"
+//        case .discoverTV:
+//            return "/discover/tvShow"
+//        case .popularTV:
+//            return "/discover/tvShow"
+//        case .detailsTV(let id):
+//            return "/tvShow/\(id)"
         }
     }
     
