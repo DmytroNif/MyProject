@@ -22,7 +22,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    weak var coordinator: MainCoordinator?
     
     var movies: [Movie] = []
     
