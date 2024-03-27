@@ -59,6 +59,7 @@ class HorizontalCell: UICollectionViewCell {
     }
     
     func setupTVCell(model: TVShow){
-        
+        label.text = model.title
+        imagePoster.sd_setImage(with: model.imageURL)
     }
 }

@@ -13,7 +13,11 @@ import SDWebImage
 class MovieCollectionViewCell: UICollectionViewCell {
     let network = NetworkManager()
     
+    var type: TypeCell?
+    
     var didSelectItem: ((Movie) -> Void)?
+    
+    var didSelectTvItem: ((TVShow) -> Void)?
     
     var genre: Genre? {
         didSet {
@@ -22,8 +26,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    
     var movies: [Movie] = []
+    
+    var tvData: [TVShow] = []
     
     let containerView: UIView = {
         let obj = UIView()
@@ -56,14 +61,33 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func fetchMoviesForGenre(genre: Genre) {
-        network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.movies = data.first?.movies ?? []
-                self?.horizontalCollectionView.reloadData()
-            case .failure(let error):
-                print(error)
+        
+        switch type {
+            
+        case .tv:
+            network.getPopularTV(page: 1) { result in
+                switch result {
+                    
+                case .success(let data):
+                    self.tvData = data.results ?? []
+                    self.horizontalCollectionView.reloadData()
+                case .failure(let error):
+                    print("")
+                }
             }
+            
+        case .movie:
+            network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
+                switch result {
+                case .success(let data):
+                    self?.movies = data.first?.movies ?? []
+                    self?.horizontalCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        case .none:
+            print("")
         }
     }
     
@@ -87,17 +111,28 @@ class MovieCollectionViewCell: UICollectionViewCell {
 // MARK: - Setup cell
 extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        switch type {
+        case .movie :
+            return movies.count
+        case .tv :
+            return tvData.count
+        case .none :
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HorizontalCell", for: indexPath) as! HorizontalCell
         cell.backgroundColor = .black
+        switch type {
+        case .movie :
+            cell.setupCell(model: movies[indexPath.row])
+        case .tv :
+            cell.setupTVCell(model: tvData[indexPath.row])
+        case .none :
+            print("")
+        }
         
-//        if let model = model[indexPath.row] {
-        cell.setupCell(model: movies[indexPath.row])
-        
-    
         return cell
     }
     
@@ -109,7 +144,19 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
-        didSelectItem?(movie)
-    }
+        let tv = tvData[indexPath.row]
+        switch type {
+        case .movie :
+            didSelectItem?(movie)
+        case .tv :
+            didSelectTvItem?(tv)
+        case .none :
+            print("")
+        }
+    }    
+}
 
+enum TypeCell {
+    case tv
+    case movie
 }

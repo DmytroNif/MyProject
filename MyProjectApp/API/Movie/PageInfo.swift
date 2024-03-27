@@ -10,12 +10,10 @@ import Foundation
 struct PageInfo: Codable {
     let page: Int
     let movies: [Movie]
-    let tvShows: [TVShow]
     
     enum CodingKeys: String, CodingKey {
         case page = "page"
         case movies = "results"
-        case tvShows = "TVresults"
     }
 }
 

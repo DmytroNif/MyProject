@@ -12,18 +12,10 @@ class LeftViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
     
-    private var movieList: [MovieList] = []
-    private var tvList: [TVShowList] = []
-    
     let genresData = Genre.allCases
     
     let mainView = LeftView()
-    let meneger = NetworkManager()
     var storage = StorageImpl()
-    
-    
-    var movies: [Movie] = []
-    var tvShow: [TVShow] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,26 +24,6 @@ class LeftViewController: UIViewController {
         mainView.collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCell")
         mainView.segmentedControl.addTarget(self, action: #selector(segmentControlTaped), for: .valueChanged)
         mainView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-        meneger.getPopularMovies(page: 1) { result in
-            switch result {
-                
-            case .success(let data):
-                self.movies = data.movies
-                self.mainView.collectionView.reloadData()
-            case .failure(_):
-                print("some error")
-            }
-        }
-        meneger.getPopularTV(page: 1) { result in
-            switch result {
-                
-            case .success(let data):
-                self.tvShow = data.results!
-                self.mainView.collectionView.reloadData()
-            case .failure(_):
-                print("some error")
-            }
-        }
     }
     
     @objc
@@ -79,8 +51,9 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCollectionViewCell
         cell.backgroundColor = .black
         cell.clipsToBounds = true
-        
+        cell.type = .movie
         cell.genre = genresData[indexPath.section]
+        
         cell.didSelectItem = { [weak self] movie in
             let movieDetailsViewController = DetailsViewController()
             movieDetailsViewController.movie = movie
@@ -101,19 +74,6 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         return cell
     }
-    
-    
-    //    private func getMovie(indexPath: IndexPath) -> Movie {
-    //        let movie = movieList[indexPath.section].previewMovies[indexPath.row]
-    //        return movie
-    //    }
-    //
-    //    private func addToFavorites(indexPath: IndexPath) {
-    //        let movie = getMovie(indexPath: indexPath)
-    //        storage?.save(movie: movie) {
-    //            ProgressHUD.liveIcon(icon: .added)
-    //        }
-    //    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Genre.allCases.count
@@ -138,8 +98,6 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height / 9)
     }
-    
-    
 }
 
 
