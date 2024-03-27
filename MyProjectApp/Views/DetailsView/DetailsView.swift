@@ -145,9 +145,9 @@ class DetailsView: UIView {
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom).offset(10)
+            make.top.equalTo(dateLabel.snp.bottom)//.offset(5)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview()
+           // make.bottom.equalToSuperview()
         }
         
         saveButton.snp.makeConstraints { make in

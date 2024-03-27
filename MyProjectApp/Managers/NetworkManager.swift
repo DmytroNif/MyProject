@@ -32,6 +32,10 @@ class NetworkManager {
         fetchData(endpoint: .popular(page: page), completion: completion)
     }
     
+    func getPopularTV(page: Int, completion: @escaping ((Result<TVShowsPageInfo, Error>) -> Void)) {
+        fetchData(endpoint: .popular(page: page), completion: completion)
+    }
+    
     func discoverMovies(genres: [Genre], page: Int, completion: @escaping ((Result<[MovieList], Error>) -> Void)) {
         let dispatchGroup = DispatchGroup()
         var movieList: [MovieList] = []

@@ -13,6 +13,7 @@ enum Endpoint: URLRequestConvertible {
     case discover(genre: Int, page: Int)
     case popular(page: Int)
     case details(id: Int)
+    case discovertv(page: Int)
 //    case discoverTV(genre: Int, page: Int)
 //    case popularTV(page: Int)
 //    case detailsTV(id: Int)
@@ -25,6 +26,8 @@ enum Endpoint: URLRequestConvertible {
             return "/discover/movie"
         case .details(let id):
             return "/movie/\(id)"
+        case .discovertv:
+            return "/discover/tv"
 //        case .discoverTV:
 //            return "/discover/tvShow"
 //        case .popularTV:
@@ -58,6 +61,10 @@ enum Endpoint: URLRequestConvertible {
             parameters = [
                 .init(name: "append_to_response", value: "videos")
             ]
+        case .discovertv(page: let page):
+            parameters = [
+                .init(name: "page", value: "\(page)")
+                ]
         }
         
         parameters.append(.init(name: "api_key", value: Constant.apiKey))

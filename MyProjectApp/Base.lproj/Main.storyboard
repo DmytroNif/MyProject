@@ -117,7 +117,7 @@
         <!--TVShow-->
         <scene sceneID="9w2-aU-aAt">
             <objects>
-                <viewController id="T4n-eW-GkP" customClass="TVShoewViewController" sceneMemberID="viewController">
+                <viewController id="T4n-eW-GkP" customClass="TVShowViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ceY-zx-MOR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

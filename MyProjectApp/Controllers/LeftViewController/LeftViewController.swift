@@ -13,6 +13,8 @@ class LeftViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     
     private var movieList: [MovieList] = []
+    private var tvList: [TVShowList] = []
+    
     let genresData = Genre.allCases
     
     let mainView = LeftView()
@@ -21,6 +23,7 @@ class LeftViewController: UIViewController {
     
     
     var movies: [Movie] = []
+    var tvShow: [TVShow] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,16 @@ class LeftViewController: UIViewController {
                 print("some error")
             }
         }
-        
+        meneger.getPopularTV(page: 1) { result in
+            switch result {
+                
+            case .success(let data):
+                self.tvShow = data.results!
+                self.mainView.collectionView.reloadData()
+            case .failure(_):
+                print("some error")
+            }
+        }
     }
     
     @objc

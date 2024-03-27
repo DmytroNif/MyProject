@@ -13,7 +13,7 @@ class LeftView: UIView{
     
     let containerView: UIView = {
         let obj = UIView()
-        obj.backgroundColor = .white
+        obj.backgroundColor = .black
         return obj
     }()
     
@@ -69,6 +69,7 @@ class LeftView: UIView{
         layout.scrollDirection = .vertical // вертикальна прокрутка
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .black
         return collectionView
     }()
     

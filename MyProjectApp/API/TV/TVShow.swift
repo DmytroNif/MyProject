@@ -11,7 +11,8 @@ import Foundation
 struct TVShow: Codable {
     let id: Int
     let language: String
-    let title: String
+    let title: String?
+   // let originalLanguage: String
     let overview: String
     let posterPath: String
     let releaseDate: String?
@@ -32,25 +33,26 @@ struct TVShow: Codable {
         return geners.prefix(3).compactMap { .init(id: $0.rawValue, name: "") }
     }
     
-    init(movieDB: MovieDB) {
-        self.id = movieDB.id
-        self.language = movieDB.language
-        self.title = movieDB.title
-        self.overview = movieDB.overview
-        self.posterPath = movieDB.posterPath
-        self.releaseDate = movieDB.releaseDate
-        self.adult = movieDB.adult
-        self.backdropPath = movieDB.backdropPath
-        self.genreIds = movieDB.genreIds.compactMap { $0 }
-        self.popularity = movieDB.popularity
-        self.voteAverage = movieDB.voteAverage
-        self.voteCount = movieDB.voteCount
+    init(tvShowDB: TVShowDB) {
+        self.id = tvShowDB.id
+        self.language = tvShowDB.language
+        self.title = tvShowDB.title
+        self.overview = tvShowDB.overview
+        self.posterPath = tvShowDB.posterPath
+        self.releaseDate = tvShowDB.releaseDate
+        self.adult = tvShowDB.adult
+        self.backdropPath = tvShowDB.backdropPath
+        self.genreIds = tvShowDB.genreIds.compactMap { $0 }
+        self.popularity = tvShowDB.popularity
+        self.voteAverage = tvShowDB.voteAverage
+        self.voteCount = tvShowDB.voteCount
     }
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case language = "original_language"
-        case title = "original_title"
+        case title = "original_name"
+       // case originalLanguage = "original_language"
         case overview = "overview"
         case posterPath = "poster_path"
         case releaseDate = "release_date"
