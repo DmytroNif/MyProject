@@ -54,6 +54,7 @@ class TVShowViewController: UIViewController {
                         
                     case .success(let tvShow):
                         tvShowDetailsViewController.mainView.setupTVUI(model: tvShow)
+                        tvShowDetailsViewController.type = .tv
                         self?.navigationController?.pushViewController(tvShowDetailsViewController, animated: true)
                     case .failure(_):
                         print("Can't get data")

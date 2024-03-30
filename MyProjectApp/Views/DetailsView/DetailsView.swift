@@ -120,7 +120,7 @@ class DetailsView: UIView {
         
         backgroundImage.sd_setImage(with: model.imageURL)
         
-        if let videoId = model.videos.tvShows.first?.key {
+        if let videoId = model.videos?.tvShows?.first?.key {
             youtubePlayer.load(withVideoId: videoId)
         } else {
             youtubePlayer.isHidden = true

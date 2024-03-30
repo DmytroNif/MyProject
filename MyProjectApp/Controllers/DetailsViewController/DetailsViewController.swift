@@ -50,85 +50,85 @@ class DetailsViewController: UIViewController {
     
     @objc
     func addToFavorites() {
-//        switch type {
-//        case .tv:
-//            guard let tvShow = self.tvShow else { return }
-//            
-//            storage.fetchFavoriteTVShow { [weak self] favoriteTV in
-//                if let self = self {
-//                    let isSaved = favoriteTV.contains { $0.id == tvShow.id }
-//                    if isSaved {
-//                        // Фільм вже збережений, видалимо його
-//                        self.storage.deleteTV(tvShowId: tvShow.id ?? 0) {_ in
-//                            ProgressHUD.liveIcon("Unsaved", icon: .failed)
-//                            self.playAnimation(animationType: .second)
-//                            print("\(tvShow.title ?? "") removed from favorites")
-//                            self.updateSaveButtonState()
-//                        }
-//                    } else {
-//                        // Фільм не збережений, додамо його
-//                        self.storage.saveTV(tvShow: tvShow) {
-//                            ProgressHUD.liveIcon("Saved", icon: .added)
-//                            self.playAnimation(animationType: .first)
-//                            print("\(tvShow.title ?? "") added to favorites")
-//                            self.updateSaveButtonState()
-//                        }
-//                    }
-//                }
-//            }
-//        case .movie :
-//            guard let movie = self.movie else { return }
-//            
-//            storage.fetchFavoriteMovies { [weak self] favoriteMovies in
-//                if let self = self {
-//                    let isSaved = favoriteMovies.contains { $0.id == movie.id }
-//                    if isSaved {
-//                        // Фільм вже збережений, видалимо його
-//                        self.storage.delete(movieId: movie.id ?? 0) {_ in
-//                            ProgressHUD.liveIcon("Unsaved", icon: .failed)
-//                            self.playAnimation(animationType: .second)
-//                            print("\(movie.title ?? "") removed from favorites")
-//                            self.updateSaveButtonState()
-//                        }
-//                    } else {
-//                        // Фільм не збережений, додамо його
-//                        self.storage.save(movie: movie) {
-//                            ProgressHUD.liveIcon("Saved", icon: .added)
-//                            self.playAnimation(animationType: .first)
-//                            print("\(movie.title ?? "") added to favorites")
-//                            self.updateSaveButtonState()
-//                        }
-//                    }
-//                }
-//            }
-//        case .none:
-//            print("")
-//        }
-
-        guard let movie = self.movie else { return }
-        
-        storage.fetchFavoriteMovies { [weak self] favoriteMovies in
-            if let self = self {
-                let isSaved = favoriteMovies.contains { $0.id == movie.id }
-                if isSaved {
-                    // Фільм вже збережений, видалимо його
-                    self.storage.delete(movieId: movie.id ?? 0) {_ in
-                        ProgressHUD.liveIcon("Unsaved", icon: .failed)
-                        self.playAnimation(animationType: .second)
-                        print("\(movie.title ?? "") removed from favorites")
-                        self.updateSaveButtonState()
-                    }
-                } else {
-                    // Фільм не збережений, додамо його
-                    self.storage.save(movie: movie) {
-                        ProgressHUD.liveIcon("Saved", icon: .added)
-                        self.playAnimation(animationType: .first)
-                        print("\(movie.title ?? "") added to favorites")
-                        self.updateSaveButtonState()
+        switch type {
+        case .tv:
+            guard let tvShow = self.tvShow else { return }
+            
+            storage.fetchFavoriteTVShow { [weak self] favoriteTV in
+                if let self = self {
+                    let isSaved = favoriteTV.contains { $0.id == tvShow.id }
+                    if isSaved {
+                        // Фільм вже збережений, видалимо його
+                        self.storage.deleteTV(tvShowId: tvShow.id ?? 0) {_ in
+                            ProgressHUD.liveIcon("Unsaved", icon: .failed)
+                            self.playAnimation(animationType: .second)
+                            print("\(tvShow.title ?? "") removed from favorites")
+                            self.updateSaveButtonState()
+                        }
+                    } else {
+                        // Фільм не збережений, додамо його
+                        self.storage.saveTV(tvShow: tvShow) {
+                            ProgressHUD.liveIcon("Saved", icon: .added)
+                            self.playAnimation(animationType: .first)
+                            print("\(tvShow.title ?? "") added to favorites")
+                            self.updateSaveButtonState()
+                        }
                     }
                 }
             }
+        case .movie :
+            guard let movie = self.movie else { return }
+            
+            storage.fetchFavoriteMovies { [weak self] favoriteMovies in
+                if let self = self {
+                    let isSaved = favoriteMovies.contains { $0.id == movie.id }
+                    if isSaved {
+                        // Фільм вже збережений, видалимо його
+                        self.storage.delete(movieId: movie.id ?? 0) {_ in
+                            ProgressHUD.liveIcon("Unsaved", icon: .failed)
+                            self.playAnimation(animationType: .second)
+                            print("\(movie.title ?? "") removed from favorites")
+                            self.updateSaveButtonState()
+                        }
+                    } else {
+                        // Фільм не збережений, додамо його
+                        self.storage.save(movie: movie) {
+                            ProgressHUD.liveIcon("Saved", icon: .added)
+                            self.playAnimation(animationType: .first)
+                            print("\(movie.title ?? "") added to favorites")
+                            self.updateSaveButtonState()
+                        }
+                    }
+                }
+            }
+        case .none:
+            print("")
         }
+
+//        guard let movie = self.movie else { return }
+//        
+//        storage.fetchFavoriteMovies { [weak self] favoriteMovies in
+//            if let self = self {
+//                let isSaved = favoriteMovies.contains { $0.id == movie.id }
+//                if isSaved {
+//                    // Фільм вже збережений, видалимо його
+//                    self.storage.delete(movieId: movie.id ?? 0) {_ in
+//                        ProgressHUD.liveIcon("Unsaved", icon: .failed)
+//                        self.playAnimation(animationType: .second)
+//                        print("\(movie.title ?? "") removed from favorites")
+//                        self.updateSaveButtonState()
+//                    }
+//                } else {
+//                    // Фільм не збережений, додамо його
+//                    self.storage.save(movie: movie) {
+//                        ProgressHUD.liveIcon("Saved", icon: .added)
+//                        self.playAnimation(animationType: .first)
+//                        print("\(movie.title ?? "") added to favorites")
+//                        self.updateSaveButtonState()
+//                    }
+//                }
+//            }
+//        }
       
     }
     func playAnimation(animationType: AnimationType) {

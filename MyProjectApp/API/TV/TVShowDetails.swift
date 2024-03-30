@@ -13,7 +13,7 @@ struct TVShowGenre: Codable {
 }
 
 struct TVShowVideos: Codable {
-    let tvShows: [TVVideo]
+    let tvShows: [TVVideo]?
     
     enum CodingKeys: String, CodingKey {
         case tvShows = "TVresults"
@@ -29,21 +29,21 @@ struct TVVideo: Codable {
 }
 
 struct TVShowDetails: Codable {
-    let title: String
-    let overview: String
-    let posterPath: String
-    let releaseDate: String
-    let backdropPath: String
-    let budget: Int
-    let homepage: String
-    let popularity: Double
-    let status: String
-    let videos: TVShowVideos
-    let genres: [TVShowGenre]
+    let title: String?
+    let overview: String?
+    let posterPath: String?
+    let releaseDate: String?
+    let backdropPath: String?
+    let budget: Int?
+    let homepage: String?
+    let popularity: Double?
+    let status: String?
+    let videos: TVShowVideos?
+    let genres: [TVShowGenre]?
     
     var imageURL: URL? {
         let baseURL = "https://image.tmdb.org/t/p/w500"
-        return URL(string: baseURL + posterPath)
+        return URL(string: baseURL + (posterPath ?? ""))
     }
     
     enum CodingKeys: String, CodingKey {

@@ -54,15 +54,20 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
                     
                 case .success(let movie):
                     movieDetailsViewController.mainView.setupUI(model: movie)
+                    movieDetailsViewController.type = .movie
                     self?.navigationController?.pushViewController(movieDetailsViewController, animated: true)
                 case .failure(_):
-                    print("Can't get data")
+                    self?.showErrorAllert()
                 }
             }
             
         }
         
         return cell
+    }
+    
+    func showErrorAllert() {
+        
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

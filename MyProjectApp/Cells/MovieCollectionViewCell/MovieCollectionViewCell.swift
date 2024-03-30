@@ -143,24 +143,12 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Check if indexPath.row is within bounds of movies array
-           guard indexPath.item < movies.count else {
-               print("Index out of range for movies array")
-               return
-           }
-           
-           // Check if indexPath.row is within bounds of tvData array
-           guard indexPath.row < tvData.count else {
-               print("Index out of range for tvData array")
-               return
-           }
-        
-        let movie = movies[indexPath.row]
-        let tv = tvData[indexPath.row]
         switch type {
         case .movie :
+            let movie = movies[indexPath.row]
             didSelectItem?(movie)
         case .tv :
+            let tv = tvData[indexPath.row]
             didSelectTvItem?(tv)
         case .none :
             print("")
