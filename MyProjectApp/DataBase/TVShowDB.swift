@@ -24,17 +24,17 @@ class TVShowDB: Object {
     
     convenience init(tvShow: TVShow) {
         self.init()
-        self.id = tvShow.id
-        self.language = tvShow.language
+        self.id = tvShow.id ?? 0
+        self.language = tvShow.language ?? ""
         self.title = tvShow.title ?? ""
-        self.overview = tvShow.overview
-        self.posterPath = tvShow.posterPath
+        self.overview = tvShow.overview ?? ""
+        self.posterPath = tvShow.posterPath ?? ""
         self.releaseDate = tvShow.releaseDate
-        self.adult = tvShow.adult
-        self.backdropPath = tvShow.backdropPath
-        self.genreIds.append(objectsIn: tvShow.genreIds)
-        self.popularity = tvShow.popularity
-        self.voteAverage = tvShow.voteAverage
-        self.voteCount = tvShow.voteCount
+        self.adult = tvShow.adult ?? false
+        self.backdropPath = tvShow.backdropPath ?? ""
+        self.genreIds.append(objectsIn: tvShow.genreIds ?? [0])
+        self.popularity = tvShow.popularity ?? 0
+        self.voteAverage = tvShow.voteAverage ?? 0
+        self.voteCount = tvShow.voteCount ?? 0
     }
 }

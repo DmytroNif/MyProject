@@ -61,13 +61,13 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Створення та налаштування рядка
         let cell = mainView.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-        cell.textLabel?.text = "\(movies[indexPath.row].title)"
+        cell.textLabel?.text = "\(movies[indexPath.row].title ?? "")"
         return cell
     }
     
     private func removeFromFavorites(indexPath: IndexPath) {
         let movieId = movies[indexPath.row].id
-        storage.delete(movieId: movieId) { [weak self] result in
+        storage.delete(movieId: movieId ?? 0) { [weak self] result in
             switch result {
             case .success:
                 ProgressHUD.liveIcon(icon: .succeed)
@@ -110,7 +110,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         movieDetailsViewController.movie = selectedMovie
         let movieID = selectedMovie.id
         
-        NetworkManager().getDetails(id: movieID) { result in
+        NetworkManager().getDetails(id: movieID ?? 0) { result in
             // Обробити результат виклику API
             switch result {
             case .success(let movieDetails):

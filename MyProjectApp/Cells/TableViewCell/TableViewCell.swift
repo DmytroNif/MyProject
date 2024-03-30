@@ -44,7 +44,7 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     func setupCell(movie: Movie) {
-        imagePoster.loadPoster(path: movie.posterPath)
+        imagePoster.loadPoster(path: movie.posterPath ?? "")
         label.text = movie.title
     }
 }

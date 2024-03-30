@@ -40,6 +40,14 @@ class StorageImpl: Storage {
         }
     }
     
+    func saveTV(tvShow: TVShow, completion: (() -> Void)) {
+        try? realm.write {
+            let tvShowDB = TVShowDB(tvShow: tvShow)
+            realm.add(tvShowDB, update: .all)
+            completion()
+        }
+    }
+    
     func delete(movieId: Int, completion: ((Result<Int, Error>) -> Void)) {
         if let movieDB = realm.object(ofType: MovieDB.self, forPrimaryKey: movieId) {
             try? realm.write {
@@ -51,10 +59,27 @@ class StorageImpl: Storage {
         }
     }
     
+    func deleteTV(tvShowId: Int, completion: ((Result<Int, Error>) -> Void)) {
+        if let tvShowDB = realm.object(ofType: TVShowDB.self, forPrimaryKey: tvShowId) {
+            try? realm.write {
+                realm.delete(tvShowDB)
+                completion(.success(tvShowId))
+            }
+        } else {
+            completion(.failure(StorageError.noObject))
+        }
+    }
+    
     func fetchFavoriteMovies(completion: (([Movie]) -> ())) {
         let favoriteMoviesDB = realm.objects(MovieDB.self)
         let favoriteMovies = Array(favoriteMoviesDB.map { Movie(movieDB: $0) })
         return completion(favoriteMovies)
+    }
+    
+    func fetchFavoriteTVShow(completion: (([TVShow]) -> ())) {
+        let favoriteTVShowDB = realm.objects(TVShowDB.self)
+        let favoriteTVShow = Array(favoriteTVShowDB.map { TVShow(tvShowDB: $0) })
+        return completion(favoriteTVShow)
     }
 }
 

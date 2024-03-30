@@ -98,7 +98,7 @@ class DetailsView: UIView {
         saveButton.addSubview(firstAnimationView)
         saveButton.addSubview(secondAnimationView)
     }
-    
+
     func setupUI(model: MovieDetails) {
         titleLabel.text = model.title
         descriptionLabel.text = model.overview
@@ -107,6 +107,20 @@ class DetailsView: UIView {
         backgroundImage.sd_setImage(with: model.imageURL)
         
         if let videoId = model.videos.movies.first?.key {
+            youtubePlayer.load(withVideoId: videoId)
+        } else {
+            youtubePlayer.isHidden = true
+        }
+    }
+    
+    func setupTVUI(model: TVShowDetails) {
+        titleLabel.text = model.title
+        descriptionLabel.text = model.overview
+        dateLabel.text = model.releaseDate
+        
+        backgroundImage.sd_setImage(with: model.imageURL)
+        
+        if let videoId = model.videos.tvShows.first?.key {
             youtubePlayer.load(withVideoId: videoId)
         } else {
             youtubePlayer.isHidden = true
@@ -168,5 +182,7 @@ class DetailsView: UIView {
     private func DetailsSetup() {
         addSubviews()
         makeConstraints()
+        
+        
     }
 }

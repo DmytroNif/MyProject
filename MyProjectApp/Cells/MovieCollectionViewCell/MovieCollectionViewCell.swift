@@ -65,11 +65,11 @@ class MovieCollectionViewCell: UICollectionViewCell {
         switch type {
             
         case .tv:
-            network.getPopularTV(page: 1) { result in
+            network.discoverTVShow(genres: [genre], page: 1) { result in
                 switch result {
                     
                 case .success(let data):
-                    self.tvData = data.results ?? []
+                    self.tvData = data.first?.tvShows ?? []
                     self.horizontalCollectionView.reloadData()
                 case .failure(let error):
                     print("")
@@ -143,6 +143,18 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Check if indexPath.row is within bounds of movies array
+           guard indexPath.item < movies.count else {
+               print("Index out of range for movies array")
+               return
+           }
+           
+           // Check if indexPath.row is within bounds of tvData array
+           guard indexPath.row < tvData.count else {
+               print("Index out of range for tvData array")
+               return
+           }
+        
         let movie = movies[indexPath.row]
         let tv = tvData[indexPath.row]
         switch type {
@@ -153,7 +165,7 @@ extension MovieCollectionViewCell: UICollectionViewDataSource, UICollectionViewD
         case .none :
             print("")
         }
-    }    
+    }
 }
 
 enum TypeCell {

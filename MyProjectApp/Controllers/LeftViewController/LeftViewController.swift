@@ -22,17 +22,7 @@ class LeftViewController: UIViewController {
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         mainView.collectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCell")
-        mainView.segmentedControl.addTarget(self, action: #selector(segmentControlTaped), for: .valueChanged)
         mainView.collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
-    }
-    
-    @objc
-    private func segmentControlTaped() {
-        if mainView.segmentedControl.selectedSegmentIndex == 0 {
-            print(mainView.segmentedControl.selectedSegmentIndex)
-        } else {
-            print(mainView.segmentedControl.selectedSegmentIndex)
-        }
     }
     
     override func loadView() {
@@ -58,7 +48,7 @@ extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelega
             let movieDetailsViewController = DetailsViewController()
             movieDetailsViewController.movie = movie
             
-            NetworkManager().getDetails(id: movie.id) { result in
+            NetworkManager().getDetails(id: movie.id ?? 0) { result in
                 
                 switch result {
                     

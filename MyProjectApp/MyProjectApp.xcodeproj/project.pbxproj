@@ -254,7 +254,6 @@
 				84FF14F22BB322310065D404 /* Movie */,
 				845400B32B6850B800508875 /* Genre.swift */,
 				84DA5FA82B72D2FB003B97AB /* Constants.swift */,
-				84FF14E62BAF1BB90065D404 /* TVShowDetails.swift */,
 				84FF14F02BB2144B0065D404 /* TVModel.swift */,
 			);
 			path = API;
@@ -381,6 +380,7 @@
 				84FF14E12BAF124C0065D404 /* TVShow.swift */,
 				84FF14F42BB3226B0065D404 /* TVPageInfo.swift */,
 				84FF14E82BAF1CAB0065D404 /* TVShowList.swift */,
+				84FF14E62BAF1BB90065D404 /* TVShowDetails.swift */,
 			);
 			path = TV;
 			sourceTree = "<group>";

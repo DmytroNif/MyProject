@@ -28,6 +28,10 @@ class NetworkManager {
         fetchData(endpoint: .details(id: id), completion: completion)
     }
     
+    func getTVDetails(id: Int, completion: @escaping ((Result<TVShowDetails, Error>) -> Void)) {
+        fetchData(endpoint: .details(id: id), completion: completion)
+    }
+    
     func getPopularMovies(page: Int, completion: @escaping ((Result<PageInfo, Error>) -> Void)) {
         fetchData(endpoint: .popular(page: page), completion: completion)
     }
@@ -55,6 +59,28 @@ class NetworkManager {
         
         dispatchGroup.notify(queue: .main) {
             completion(.success(movieList))
+        }
+    }
+    
+    func discoverTVShow(genres: [Genre], page: Int, completion: @escaping ((Result<[TVShowList], Error>) -> Void)) {
+        let dispatchGroup = DispatchGroup()
+        var tvList: [TVShowList] = []
+        
+        genres.forEach { genre in
+            dispatchGroup.enter()
+            fetchData(endpoint: .discovertv(page: page)) { (result: Result<TVShowsPageInfo, Error>) in
+                switch result {
+                case .success(let page):
+                    tvList.append(.init(genre: Genre(rawValue: genre.rawValue) ?? Genre.action, tvShows: page.results ?? [] ))
+                case .failure:
+                    break
+                }
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            completion(.success(tvList))
         }
     }
 }

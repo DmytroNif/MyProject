@@ -8,26 +8,26 @@
 import Foundation
 
 struct Movie: Codable {
-    let id: Int
-    let language: String
-    let title: String
-    let overview: String
-    let posterPath: String
+    let id: Int?
+    let language: String?
+    let title: String?
+    let overview: String?
+    let posterPath: String?
     let releaseDate: String?
-    let adult: Bool
-    let backdropPath: String
-    let genreIds: [Int]
-    let popularity: Double
-    let voteAverage: Double
-    let voteCount: Double
+    let adult: Bool?
+    let backdropPath: String?
+    let genreIds: [Int]?
+    let popularity: Double?
+    let voteAverage: Double?
+    let voteCount: Double?
     
     var imageURL: URL? {
         let baseURL = "https://image.tmdb.org/t/p/w500"
-        return URL(string: baseURL + posterPath)
+        return URL(string: baseURL + (posterPath ?? ""))
     }
     
     var geners: [MovieGenre] {
-        let geners = Genre.allCases.filter({ genreIds.contains($0.rawValue) })
+        let geners = Genre.allCases.filter({ (genreIds ?? []).contains($0.rawValue) })
         return geners.prefix(3).compactMap { .init(id: $0.rawValue, name: "") }
     }
     
