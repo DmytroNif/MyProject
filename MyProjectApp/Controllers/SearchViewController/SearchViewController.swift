@@ -19,19 +19,17 @@ import YouTubeiOSPlayerHelper
 import Lottie
 
 class SearchViewController: UIViewController, UITextFieldDelegate {
-    let mainView = RightView()
+    let mainView = SearchView()
     var searchArray: [String] = []
     var sortedArray: [String] = []
     var tvData: [TVShow] = []
-    var moviewData: [TVShow] = []
-    
-    var textField: UITextField = UITextField()
+    var moviewData: [Movie] = []
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textField.addTarget(self, action: #selector(textfieldChangedValue), for: .valueChanged)
-        textField.delegate = self
+        mainView.searchTextField.addTarget(self, action: #selector(textfieldChangedValue), for: .valueChanged)
+        mainView.searchTextField.delegate = self
         
         for i in tvData {
             searchArray.append(i.title ?? "")
@@ -51,11 +49,11 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     
     @objc func textfieldChangedValue() {
         self.sortedArray = []
-        if let text = textField.text {
+        if let text = mainView.searchTextField.text {
         for i in searchArray {
                 if i.contains(text) {
                     self.sortedArray.append(i)
-//                    UITableView.reloadData()
+                    mainView.searchTableView.reloadData()
                 }
             }
         }

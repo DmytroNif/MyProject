@@ -57,8 +57,9 @@ class TVShowViewController: UIViewController {
                         tvShowDetailsViewController.type = .tv
                         self?.navigationController?.pushViewController(tvShowDetailsViewController, animated: true)
                     case .failure(_):
-                        print("Can't get data")
-                    }
+                        let alertController = UIAlertController(title: "Sorry", message: "No details available for this one", preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        collectionView.window?.rootViewController?.present(alertController, animated: true, completion: nil)                    }
                 }
                 
             }
