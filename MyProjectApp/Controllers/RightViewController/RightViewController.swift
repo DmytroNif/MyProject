@@ -74,7 +74,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         if indexPath.row < movies.count { // Перевірка, чи індекс знаходиться у межах фільмів
                    cell.textLabel?.text = "\(movies[indexPath.row].title ?? "")"
                } else { // Якщо індекс виходить за межі фільмів, відображати телесеріали
-                   cell.textLabel?.text = "\(tvShow[indexPath.row - movies.count].title ?? "")"
+                   cell.textLabel?.text = "\(tvShow[indexPath.row - movies.count].name)"
                }
                return cell
     }

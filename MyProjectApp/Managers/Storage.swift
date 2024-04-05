@@ -78,7 +78,7 @@ class StorageImpl: Storage {
     
     func fetchFavoriteTVShow(completion: (([TVShow]) -> ())) {
         let favoriteTVShowDB = realm.objects(TVShowDB.self)
-        let favoriteTVShow = Array(favoriteTVShowDB.map { TVShow(tvShowDB: $0) })
+        let favoriteTVShow = Array(favoriteTVShowDB.map { TVShow(tvShow: $0) })
         return completion(favoriteTVShow)
     }
 }

@@ -10,31 +10,33 @@ import RealmSwift
 
 class TVShowDB: Object {
     @Persisted(primaryKey: true) var id: Int
-    @Persisted var language: String = ""
+    @Persisted var originalLanguage: String = ""
     @Persisted var title: String = ""
     @Persisted var overview: String = ""
     @Persisted var posterPath: String = ""
-    @Persisted var releaseDate: String? = nil
+    @Persisted var firstAirDate: String? = nil
     @Persisted var adult: Bool = true
     @Persisted var backdropPath: String = ""
-    @Persisted var genreIds: List<Int> = List<Int>()
+    //  @Persisted var genreIDS: [Int] = []
     @Persisted var popularity: Double = 0.0
     @Persisted var voteAverage: Double = 0.0
-    @Persisted var voteCount: Double = 0.0
+    @Persisted var voteCount: Int = 0
+    @Persisted var name: String = ""
+  //  @Persisted var originCountry: [String] = []
     
     convenience init(tvShow: TVShow) {
         self.init()
-        self.id = tvShow.id ?? 0
-        self.language = tvShow.language ?? ""
-        self.title = tvShow.title ?? ""
-        self.overview = tvShow.overview ?? ""
-        self.posterPath = tvShow.posterPath ?? ""
-        self.releaseDate = tvShow.releaseDate
-        self.adult = tvShow.adult ?? false
+        self.id = tvShow.id
+        self.originalLanguage = tvShow.originalLanguage
+        self.name = tvShow.name
+        self.overview = tvShow.overview
+        self.posterPath = tvShow.posterPath
         self.backdropPath = tvShow.backdropPath ?? ""
-        self.genreIds.append(objectsIn: tvShow.genreIds ?? [0])
-        self.popularity = tvShow.popularity ?? 0
-        self.voteAverage = tvShow.voteAverage ?? 0
-        self.voteCount = tvShow.voteCount ?? 0
+     //   self.genreIDS = tvShow.genreIDS
+        self.popularity = tvShow.popularity
+        self.voteAverage = tvShow.voteAverage
+        self.voteCount = tvShow.voteCount
+        self.firstAirDate = tvShow.firstAirDate
+      //  self.originCountry = tvShow.originCountry
     }
 }

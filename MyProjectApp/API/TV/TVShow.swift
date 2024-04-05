@@ -4,62 +4,59 @@
 //
 //  Created by admin on 23/03/2024.
 //
-
 import Foundation
 
 
 struct TVShow: Codable {
-    let id: Int?
-    let language: String?
-    let title: String?
-   // let originalLanguage: String
-    let overview: String?
-    let posterPath: String?
-    let releaseDate: String?
-    let adult: Bool?
     let backdropPath: String?
-    let genreIds: [Int]?
-    let popularity: Double?
-    let voteAverage: Double?
-    let voteCount: Double?
+    let firstAirDate: String
+   // let genreIDS: [Int]
+    let id: Int
+    let name: String
+  //  let originCountry: [String] = []
+    let originalLanguage, overview: String
+    let popularity: Double
+    let posterPath: String
+    let voteAverage: Double
+    let voteCount: Int
     
     var imageURL: URL? {
         let baseURL = "https://image.tmdb.org/t/p/w500"
-        return URL(string: baseURL + (posterPath ?? ""))
+        return URL(string: baseURL + (posterPath ))
     }
     
-    var geners: [MovieGenre] {
-        let geners = Genre.allCases.filter({ (genreIds ?? []).contains($0.rawValue) })
-        return geners.prefix(3).compactMap { .init(id: $0.rawValue, name: "") }
-    }
+//    var geners: [TVShowGenre] {
+//        let geners = Genre.allCases.filter({ (genreIDS ?? []).contains($0.rawValue) })
+//        return geners.prefix(3).compactMap { .init(id: $0.rawValue, name: "") }
+//    }
     
-    init(tvShowDB: TVShowDB) {
-        self.id = tvShowDB.id
-        self.language = tvShowDB.language
-        self.title = tvShowDB.title
-        self.overview = tvShowDB.overview
-        self.posterPath = tvShowDB.posterPath
-        self.releaseDate = tvShowDB.releaseDate
-        self.adult = tvShowDB.adult
-        self.backdropPath = tvShowDB.backdropPath
-        self.genreIds = tvShowDB.genreIds.compactMap { $0 }
-        self.popularity = tvShowDB.popularity
-        self.voteAverage = tvShowDB.voteAverage
-        self.voteCount = tvShowDB.voteCount
+    init(tvShow: TVShowDB) {
+        self.id = tvShow.id
+        self.originalLanguage = tvShow.originalLanguage
+        self.name = tvShow.title
+        self.overview = tvShow.overview
+        self.posterPath = tvShow.posterPath
+        self.backdropPath = tvShow.backdropPath
+      //  self.genreIDS = tvShow.genreIDS.compactMap { $0 }
+        self.popularity = tvShow.popularity
+        self.voteAverage = tvShow.voteAverage
+        self.voteCount = tvShow.voteCount
+        self.firstAirDate = tvShow.firstAirDate ?? ""
+       // self.originCountry = tvShow.originCountry
     }
-    
+
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case language = "original_language"
-        case title = "original_name"
-       // case originalLanguage = "original_language"
-        case overview = "overview"
-        case posterPath = "poster_path"
-        case releaseDate = "release_date"
-        case adult = "adult"
         case backdropPath = "backdrop_path"
-        case genreIds = "genre_ids"
-        case popularity = "popularity"
+        case firstAirDate = "first_air_date"
+       // case genreIDS = "genre_ids"
+        case id
+        case name
+       // case originCountry = "origin_country"
+        case originalLanguage = "original_language"
+      //  case originalName = "original_name"
+        case overview
+        case popularity
+        case posterPath = "poster_path"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }

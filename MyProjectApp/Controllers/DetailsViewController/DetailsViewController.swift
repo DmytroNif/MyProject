@@ -62,7 +62,7 @@ class DetailsViewController: UIViewController {
                         self.storage.deleteTV(tvShowId: tvShow.id ?? 0) {_ in
                             ProgressHUD.liveIcon("Unsaved", icon: .failed)
                             self.playAnimation(animationType: .second)
-                            print("\(tvShow.title ?? "") removed from favorites")
+                            print("\(tvShow.name ?? "") removed from favorites")
                             self.updateSaveButtonState()
                         }
                     } else {
@@ -70,7 +70,7 @@ class DetailsViewController: UIViewController {
                         self.storage.saveTV(tvShow: tvShow) {
                             ProgressHUD.liveIcon("Saved", icon: .added)
                             self.playAnimation(animationType: .first)
-                            print("\(tvShow.title ?? "") added to favorites")
+                            print("\(tvShow.name ?? "") added to favorites")
                             self.updateSaveButtonState()
                         }
                     }
