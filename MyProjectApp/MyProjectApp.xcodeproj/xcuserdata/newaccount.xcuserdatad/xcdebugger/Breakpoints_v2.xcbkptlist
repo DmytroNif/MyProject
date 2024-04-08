@@ -49,6 +49,21 @@
                   endingLineNumber = "61"
                   offsetFromSymbolStart = "119">
                </Location>
+               <Location
+                  uuid = "394C537B-B153-49F7-8FCA-667E844B4EA6 - bd6758aa082e55b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyProjectApp.RightViewController.fetchFavoriteTV() -&gt; ()"
+                  moduleName = "MyProjectApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/newaccount/Desktop/Allmusic/MyProject/MyProjectApp/Controllers/RightViewController/RightViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "16">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -177,6 +192,22 @@
             startingLineNumber = "71"
             endingLineNumber = "71"
             landmarkName = "addToFavorites()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4ACA3E7B-A4D8-46D5-B45B-7E505E59036C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Controllers/SearchViewController/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

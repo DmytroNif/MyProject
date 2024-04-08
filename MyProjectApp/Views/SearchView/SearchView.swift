@@ -41,7 +41,7 @@ class SearchView: UIView{
     let searchTableView: UITableView = {
         let tableView = UITableView()
         
-        
+        tableView.backgroundColor = .clear
         return tableView
     }()
     
@@ -72,14 +72,12 @@ class SearchView: UIView{
         
         searchTextField.snp.makeConstraints { make in
             make.height.equalTo(30)
-            make.width.equalTo(300)
-            make.centerX.equalToSuperview().offset(0)
-            make.centerY.equalToSuperview().offset(-200)
+            make.top.equalToSuperview().inset(70)
             make.leading.trailing.equalToSuperview()
         }
         
         searchTableView.snp.makeConstraints { make in
-            make.top.equalTo(searchTextField)
+            make.top.equalTo(searchTextField.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }

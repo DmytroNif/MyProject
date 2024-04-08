@@ -54,8 +54,8 @@
                     <connections>
                         <segue destination="pAC-W5-sUs" kind="relationship" relationship="viewControllers" id="XNU-bh-N2n"/>
                         <segue destination="oRF-IZ-S6v" kind="relationship" relationship="viewControllers" id="UKW-Ws-vNa"/>
-                        <segue destination="82j-wP-BXZ" kind="relationship" relationship="viewControllers" id="bhV-Ti-put"/>
-                        <segue destination="xAa-Ly-Ffa" kind="relationship" relationship="viewControllers" id="5QH-vZ-EzQ"/>
+                        <segue destination="9yi-iI-qLC" kind="relationship" relationship="viewControllers" id="dS3-e6-lgm"/>
+                        <segue destination="xAa-Ly-Ffa" kind="relationship" relationship="viewControllers" id="e7n-65-nXA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQs-aJ-1Ly" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,27 +132,10 @@
             </objects>
             <point key="canvasLocation" x="2027" y="-213"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="vWe-7y-dMS">
-            <objects>
-                <navigationController id="82j-wP-BXZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="iwP-ck-9Rp"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIc-ZQ-vyq">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="9yi-iI-qLC" kind="relationship" relationship="rootViewController" id="sJ6-Ok-ZWL"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Oxm-0V-KdN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1111" y="1237"/>
-        </scene>
         <!--Search-->
         <scene sceneID="Sy7-6k-gus">
             <objects>
-                <viewController id="9yi-iI-qLC" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController id="9yi-iI-qLC" customClass="SearchViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y7X-ob-udB">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -165,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9E-yY-L8M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2027" y="1237"/>
+            <point key="canvasLocation" x="109" y="1065"/>
         </scene>
     </scenes>
     <resources>

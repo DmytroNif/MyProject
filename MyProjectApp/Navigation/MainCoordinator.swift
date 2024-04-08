@@ -34,8 +34,6 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(rightViewController, animated: true)
     }
     
-   
-    
     func showError(error: Error) {
         let title = "Oops"
         let message = error.localizedDescription
