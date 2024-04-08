@@ -29,7 +29,7 @@ class NetworkManager {
     }
     
     func getTVDetails(id: Int, completion: @escaping ((Result<TVShowDetails, Error>) -> Void)) {
-        fetchData(endpoint: .details(id: id), completion: completion)
+        fetchData(endpoint: .detailsTV(id: id), completion: completion)
     }
     
     func getPopularMovies(page: Int, completion: @escaping ((Result<PageInfo, Error>) -> Void)) {

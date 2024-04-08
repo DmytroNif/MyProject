@@ -33,7 +33,7 @@ struct TVShow: Codable {
     init(tvShow: TVShowDB) {
         self.id = tvShow.id
         self.originalLanguage = tvShow.originalLanguage
-        self.name = tvShow.title
+        self.name = tvShow.name
         self.overview = tvShow.overview
         self.posterPath = tvShow.posterPath
         self.backdropPath = tvShow.backdropPath

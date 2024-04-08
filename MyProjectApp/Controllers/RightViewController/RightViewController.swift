@@ -11,8 +11,9 @@ import ProgressHUD
 
 class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var movies: [Movie] = []
-    private var tvShow: [TVShow] = []
+    //    private var movies: [Movie] = []
+    //    private var tvShow: [TVShow] = []
+    private var dataArray: [SavedMoviesModel] = []
     
     var storage = StorageImpl()
     
@@ -40,60 +41,64 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
         fetchFavoriteMovies()
         fetchFavoriteTV()
     }
-
+    
     
     private func registerCells() {
         mainView.tableView.register(MovieTableViewCell.self)
     }
     
     private func fetchFavoriteMovies() {
+        self.dataArray = []
         storage.fetchFavoriteMovies() { [weak self] movies in
-            self?.movies = movies
+            
+            for i in movies {
+                self?.dataArray.append(SavedMoviesModel(name: i.title ?? "No data", id: i.id ?? 0, type: .movie))
+            }
+            self?.mainView.tableView.reloadData()
+        }
+        
+        storage.fetchFavoriteTVShow{ [weak self] tvShow in
+            for i in tvShow {
+                self?.dataArray.append(SavedMoviesModel(name: i.name ?? "No data", id: i.id ?? 0, type: .tv))
+            }
             self?.mainView.tableView.reloadData()
         }
     }
     
     private func fetchFavoriteTV() {
-        storage.fetchFavoriteTVShow{ [weak self] tvShow in
-            self?.tvShow = tvShow
-            self?.mainView.tableView.reloadData()
-        }
+        
     }
-
+    
     
     //MARK: - UITableViewDataSource methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Повернення кількості рядків у таблиці
-        return (movies.count + tvShow.count)
+        return dataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Створення та налаштування рядка
         let cell = mainView.tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MovieTableViewCell
-        if indexPath.row < movies.count { // Перевірка, чи індекс знаходиться у межах фільмів
-                   cell.textLabel?.text = "\(movies[indexPath.row].title ?? "")"
-               } else { // Якщо індекс виходить за межі фільмів, відображати телесеріали
-                   cell.textLabel?.text = "\(tvShow[indexPath.row - movies.count].name)"
-               }
-               return cell
+        cell.textLabel?.text = dataArray[indexPath.row].name
+        return cell
     }
     
     private func removeFromFavorites(indexPath: IndexPath) {
-        if indexPath.row < movies.count {
-                   let movieId = movies[indexPath.row].id
-                   storage.delete(movieId: movieId ?? 0) { [weak self] result in
-                       switch result {
-                       case .success:
-                           ProgressHUD.liveIcon(icon: .succeed)
-                           self?.deleteMovie(indexPath: indexPath)
-                       case .failure:
-                           ProgressHUD.liveIcon(icon: .failed)
-                       }
-                   }
+        if dataArray[indexPath.row].type == .movie {
+            let movieId = dataArray[indexPath.row].id
+            storage.delete(movieId: movieId ) { [weak self] result in
+                switch result {
+                case .success:
+                    ProgressHUD.liveIcon(icon: .succeed)
+                    self?.deleteMovie(indexPath: indexPath)
+                case .failure:
+                    ProgressHUD.liveIcon(icon: .failed)
+                }
+            }
         } else  {
-            let tvShowId = tvShow[indexPath.row - movies.count].id
-            storage.deleteTV(tvShowId: tvShowId ?? 0) { [weak self] result in
+            let tvShowId = dataArray[indexPath.row].id
+            storage.deleteTV(tvShowId: tvShowId ) { [weak self] result in
                 switch result {
                 case .success:
                     ProgressHUD.liveIcon(icon: .succeed)
@@ -106,7 +111,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func deleteMovie(indexPath: IndexPath) {
-        movies.remove(at: indexPath.row)
+        dataArray.remove(at: indexPath.row)
         
         mainView.tableView.beginUpdates()
         mainView.tableView.deleteRows(at: [indexPath], with: .fade)
@@ -114,14 +119,12 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     private func deleteTVShow(indexPath: IndexPath) {
-        if indexPath.row < tvShow.count {
-            tvShow.remove(at: indexPath.row)
-            
-            mainView.tableView.beginUpdates()
-            mainView.tableView.deleteRows(at: [indexPath], with: .fade)
-            mainView.tableView.endUpdates()
-            
-        }
+        dataArray.remove(at: indexPath.row)
+        
+        mainView.tableView.beginUpdates()
+        mainView.tableView.deleteRows(at: [indexPath], with: .fade)
+        mainView.tableView.endUpdates()
+        
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -141,66 +144,52 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: - UITableViewDelegate methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Обробка події вибору рядка
-//        
-//        let selectedMovie = movies[indexPath.row]
-//        let movieDetailsViewController = DetailsViewController()
-//        movieDetailsViewController.movie = selectedMovie
-//        let movieID = selectedMovie.id
-//        
-//        NetworkManager().getDetails(id: movieID ?? 0) { result in
-//            // Обробити результат виклику API
-//            switch result {
-//            case .success(let movieDetails):
-//                // У випадку успішного отримання даних відобразити їх у відповідному вигляді
-//                movieDetailsViewController.mainView.setupUI(model: movieDetails)
-//                
-//                // Отримати доступ до навігаційного контролера та відкрити деталізований контролер
-//                DispatchQueue.main.async {
-//                    self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
-//                }
-//            case .failure(_):
-//                // У разі невдалого запиту вивести повідомлення про помилку
-//                print("Can't get data")
-//            }
-//        }
-        if indexPath.row < movies.count {
-                    let selectedMovie = movies[indexPath.row]
-                    let movieDetailsViewController = DetailsViewController()
-                    movieDetailsViewController.movie = selectedMovie
-                    let movieID = selectedMovie.id
-                    
-                    NetworkManager().getDetails(id: movieID ?? 0) { result in
-                        switch result {
-                        case .success(let movieDetails):
-                            movieDetailsViewController.mainView.setupUI(model: movieDetails)
-                            movieDetailsViewController.type = .movie
-                            DispatchQueue.main.async {
-                                self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
-                            }
-                        case .failure(_):
-                            print("Can't get data")
-                        }
+        if dataArray[indexPath.row].type == .movie {
+            let selectedMovie = dataArray[indexPath.row]
+            let movieDetailsViewController = DetailsViewController()
+            let movieID = selectedMovie.id
+            
+            NetworkManager().getDetails(id: movieID ) { result in
+                switch result {
+                case .success(let movieDetails):
+                    movieDetailsViewController.mainView.setupUI(model: movieDetails)
+                    movieDetailsViewController.type = .movie
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(movieDetailsViewController, animated: true)
                     }
-        } else if indexPath.row < tvShow.count {
-                    let selectedTV = tvShow[indexPath.row]
-                    let TVDetailsViewController = DetailsViewController()
-                    TVDetailsViewController.tvShow = selectedTV
-                    let tvID = selectedTV.id
-                    
-                    NetworkManager().getTVDetails(id: tvID ?? 0) { result in
-                        switch result {
-                        case .success(let tvDetails):
-                            TVDetailsViewController.mainView.setupTVUI(model: tvDetails)
-                            TVDetailsViewController.type = .tv
-                            DispatchQueue.main.async {
-                                self.navigationController?.pushViewController(TVDetailsViewController, animated: true)
-                            }
-                        case .failure(_):
-                            print("Can't get data")
-                        }
-                    }
+                case .failure(_):
+                    print("Can't get data")
                 }
+            }
+        } else {
+            let selectedTV = dataArray[indexPath.row]
+            let TVDetailsViewController = DetailsViewController()
+            let tvID = selectedTV.id
+            
+            NetworkManager().getTVDetails(id: tvID ) { result in
+                switch result {
+                case .success(let tvDetails):
+                    TVDetailsViewController.mainView.setupTVUI(model: tvDetails)
+                    TVDetailsViewController.type = .tv
+                    DispatchQueue.main.async {
+                        self.navigationController?.pushViewController(TVDetailsViewController, animated: true)
+                    }
+                case .failure(_):
+                    print("Can't get data")
+                }
+            }
+        }
     }
 }
 
+
+struct SavedMoviesModel {
+    var name: String
+    var id: Int
+    var type: CellType
+    
+    enum CellType {
+        case tv
+        case movie
+    }
+}
