@@ -32,7 +32,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         mainView.searchTextField.delegate = self
         
         for i in tvData {
-            searchArray.append(i.name)
+            searchArray.append(i.name ?? "")
         }
         
         for i in moviewData {

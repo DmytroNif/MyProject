@@ -9,20 +9,20 @@ import Foundation
 
 struct TVShow: Codable {
     let backdropPath: String?
-    let firstAirDate: String
+    let firstAirDate: String?
    // let genreIDS: [Int]
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
   //  let originCountry: [String] = []
-    let originalLanguage, overview: String
-    let popularity: Double
-    let posterPath: String
-    let voteAverage: Double
-    let voteCount: Int
+    let originalLanguage, overview: String?
+    let popularity: Double?
+    let posterPath: String?
+    let voteAverage: Double?
+    let voteCount: Int?
     
     var imageURL: URL? {
         let baseURL = "https://image.tmdb.org/t/p/w500"
-        return URL(string: baseURL + (posterPath ))
+        return URL(string: baseURL + (posterPath ?? "" ))
     }
     
 //    var geners: [TVShowGenre] {
