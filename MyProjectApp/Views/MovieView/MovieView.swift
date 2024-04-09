@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class LeftView: UIView{
+class MovieView: UIView{
     
     let containerView: UIView = {
         let obj = UIView()

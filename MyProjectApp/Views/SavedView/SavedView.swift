@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class RightView: UIView{
+class SavedView: UIView{
     
     private var movies: [Movie] = []
     

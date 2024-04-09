@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import ProgressHUD
 
-class RightViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SavedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //    private var movies: [Movie] = []
     //    private var tvShow: [TVShow] = []
@@ -17,7 +17,7 @@ class RightViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     var storage = StorageImpl()
     
-    let mainView = RightView()
+    let mainView = SavedView()
     
     override func viewDidLoad() {
         super.viewDidLoad()

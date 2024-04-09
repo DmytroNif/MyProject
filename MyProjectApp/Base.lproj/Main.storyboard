@@ -28,7 +28,7 @@
         <!--saved-->
         <scene sceneID="Ond-BN-hy6">
             <objects>
-                <viewController id="8I6-hN-wtv" customClass="RightViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8I6-hN-wtv" customClass="SavedViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AOw-8F-hNR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -82,7 +82,7 @@
         <!--Movies-->
         <scene sceneID="UUm-LY-22R">
             <objects>
-                <viewController id="Y1C-yb-yZc" customClass="LeftViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y1C-yb-yZc" customClass="MovieViewController" customModule="MyProjectApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FGg-od-Rhy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

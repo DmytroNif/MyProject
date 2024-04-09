@@ -8,13 +8,13 @@
 import UIKit
 import ProgressHUD
 
-class LeftViewController: UIViewController {
+class MovieViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
     
     let genresData = Genre.allCases
     
-    let mainView = LeftView()
+    let mainView = MovieView()
     var storage = StorageImpl()
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class LeftViewController: UIViewController {
     }
 }
 
-extension LeftViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MovieViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }

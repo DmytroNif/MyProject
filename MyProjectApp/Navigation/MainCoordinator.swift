@@ -17,9 +17,9 @@ class MainCoordinator: Coordinator {
 
     func start() {
         let storage: Storage = StorageImpl()
-        let leftViewController = LeftViewController.instantiate()
-        leftViewController.coordinator = self
-        navigationController.pushViewController(leftViewController, animated: false)
+        let movieViewController = MovieViewController.instantiate()
+        movieViewController.coordinator = self
+        navigationController.pushViewController(movieViewController, animated: false)
     }
     
     func showDetails(id: Int) {
@@ -28,10 +28,10 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(detailsViewController, animated: true)
     }
     
-    func showRightViewController(movieList: MovieList) {
-        let rightViewController = RightViewController.instantiate()
+    func showSavedViewController(movieList: MovieList) {
+        let savedViewController = SavedViewController.instantiate()
        // rightViewController.coordinator = self
-        navigationController.pushViewController(rightViewController, animated: true)
+        navigationController.pushViewController(savedViewController, animated: true)
     }
     
     func showError(error: Error) {
