@@ -18,7 +18,7 @@ import ProgressHUD
 import YouTubeiOSPlayerHelper
 import Lottie
 
-class SearchViewController: UIViewController, UITextFieldDelegate {
+class SearchViewController: UIViewController {
     let mainView = SearchView()
     var searchArray: [String] = []
     var sortedArray: [String] = []
@@ -60,6 +60,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+
+
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sortedArray.count
@@ -67,5 +69,12 @@ extension SearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        mainView.searchTextField.resignFirstResponder()
+        return true
     }
 }
