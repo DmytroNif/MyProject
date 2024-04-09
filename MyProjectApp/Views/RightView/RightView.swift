@@ -23,7 +23,7 @@ class RightView: UIView{
         let obj = UILabel()
         obj.textColor = .black
         obj.text = "Saved"
-        obj.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40)
+        obj.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40.sizeH)
         return obj
     }()
     
@@ -61,7 +61,7 @@ class RightView: UIView{
         
         headerLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(safeAreaInsets.bottom).offset(50)
+            make.top.equalTo(safeAreaInsets.bottom).offset(50.sizeH)
             
         }
     }

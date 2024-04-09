@@ -21,13 +21,13 @@ class SearchView: UIView{
     let searchTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = UIColor.lightGray
-        textField.layer.cornerRadius = 5
+        textField.layer.cornerRadius = 15.sizeH
         textField.clipsToBounds = true
         
         // Setting up leftView with an image
         let imageView = UIImageView(image: UIImage(systemName: "magnifyingglass"))
         imageView.contentMode = .scaleAspectFit
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20)) // Adjust the frame as per your needs
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 30.sizeW, height: 20.sizeH)) // Adjust the frame as per your needs
         imageView.frame = paddingView.bounds
         paddingView.addSubview(imageView)
         textField.leftView = paddingView
@@ -71,8 +71,8 @@ class SearchView: UIView{
         }
         
         searchTextField.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.top.equalToSuperview().inset(70)
+            make.height.equalTo(40.sizeH)
+            make.top.equalToSuperview().inset(70.sizeH)
             make.leading.trailing.equalToSuperview()
         }
         

@@ -141,33 +141,33 @@ class DetailsView: UIView {
         }
         
         youtubePlayer.snp.makeConstraints { make in
-            make.height.equalTo(400)
+            make.height.equalTo(400.sizeH)
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
+            make.height.equalTo(40.sizeH)
             make.top.equalTo(youtubePlayer.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
         }
         
         dateLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.height.equalTo(40.sizeH)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10.sizeH)
             make.leading.trailing.equalToSuperview()
         }
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(dateLabel.snp.bottom)//.offset(5)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(16.sizeW)
            // make.bottom.equalToSuperview()
         }
         
         saveButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(10)
-            make.size.equalTo(50)
-            make.centerY.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().inset(10.sizeW)
+            make.size.equalTo(50.sizeH)
+            make.centerY.equalToSuperview().offset(30.sizeW)
         }
         
         firstAnimationView.snp.makeConstraints { make in
