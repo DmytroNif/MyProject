@@ -185,14 +185,6 @@
 			path = DetailsViewController;
 			sourceTree = "<group>";
 		};
-		841F00F82BC575EB001B78CF /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				841F00F92BC575FB001B78CF /* SizeHelper.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		8454006D2B6325B600508875 = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +204,6 @@
 		845400782B6325B600508875 /* MyProjectApp */ = {
 			isa = PBXGroup;
 			children = (
-				841F00F82BC575EB001B78CF /* Helpers */,
 				84FF14D12BA64B920065D404 /* Extension */,
 				84FF14A92B90E4050065D404 /* Cells */,
 				84FF14A22B876B1D0065D404 /* Navigation */,
@@ -330,6 +321,7 @@
 		84FF14D12BA64B920065D404 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				841F00F92BC575FB001B78CF /* SizeHelper.swift */,
 				84FF14D22BA64BAF0065D404 /* protocol.swift */,
 				84FF14D82BA64DA00065D404 /* UIPoster.swift */,
 			);
