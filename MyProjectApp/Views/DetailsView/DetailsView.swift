@@ -148,7 +148,7 @@ class DetailsView: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.height.equalTo(40.sizeH)
-            make.top.equalTo(youtubePlayer.snp.bottom).offset(10)
+            make.top.equalTo(youtubePlayer.snp.bottom).offset(10.sizeH)
             make.leading.trailing.equalToSuperview()
         }
         
