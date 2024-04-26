@@ -74,7 +74,7 @@ class SearchViewController: UIViewController {
         {
             return
         }
-                didSendEventClosure?(.details(movie))
+        didSendEventClosure?(.details(movie))
     }
     
     private func addToFavorites(indexPath: IndexPath) {
@@ -130,18 +130,18 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension SearchViewController: UITextFieldDelegate {
-   @objc func textFieldDidChange() {
-            searchTimer?.invalidate()
-     searchText = mainView.searchTextField.text ?? ""
-       
-            guard !searchText.isEmpty else {
-                searchResults = []
-                return
-            }
-            
-        self.searchText = mainView.searchTextField.text ?? ""
-            searchTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(performSearch), userInfo: nil, repeats: false)
+    @objc func textFieldDidChange() {
+        searchTimer?.invalidate()
+        searchText = mainView.searchTextField.text ?? ""
+        
+        guard !searchText.isEmpty else {
+            searchResults = []
+            return
         }
+        
+        self.searchText = mainView.searchTextField.text ?? ""
+        searchTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(performSearch), userInfo: nil, repeats: false)
+    }
 }
 
 extension SearchViewController {
