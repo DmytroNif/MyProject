@@ -20,61 +20,132 @@ import Lottie
 
 class SearchViewController: UIViewController {
     let mainView = SearchView()
-    var searchArray: [String] = []
-    var sortedArray: [String] = []
-    var tvData: [TVShow] = []
-    var moviewData: [Movie] = []
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        mainView.searchTextField.addTarget(self, action: #selector(textfieldChangedValue), for: .valueChanged)
-        mainView.searchTextField.delegate = self
-        
-        for i in tvData {
-            searchArray.append(i.name ?? "")
-        }
-        
-        for i in moviewData {
-            searchArray.append(i.title ?? "")
+    var didSendEventClosure: ((SearchViewController.Event) -> Void)?
+    
+    private var networkService = NetworkManager()
+    
+    private let storageService = StorageImpl()
+    
+    private var searchTimer: Timer?
+    private var searchText: String = ""
+    private var searchResults: [Movie] = [] {
+        didSet {
+            mainView.searchTableView.reloadData()
         }
     }
     
-   
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupTable()
+        registerCells()
+        mainView.searchTextField.delegate = self
+        
+        mainView.searchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
+    }
+    
     override func loadView() {
         super.loadView()
         view = mainView
     }
     
-    @objc func textfieldChangedValue() {
-        self.sortedArray = []
-        if let text = mainView.searchTextField.text {
-        for i in searchArray {
-                if i.contains(text) {
-                    self.sortedArray.append(i)
-                    mainView.searchTableView.reloadData()
-                }
+    private func setupTable() {
+        mainView.searchTableView.dataSource = self
+        mainView.searchTableView.delegate = self
+    }
+    
+    @objc private func performSearch() {
+        networkService.searchMovies(query: searchText) { [weak self] result in
+            switch result {
+            case .success(let page):
+                self?.searchResults = page.results
+            case .failure(let error):
+                print("Error searching movies: \(error)")
             }
         }
+    }
+    
+    private func getMovie(indexPath: IndexPath) -> Movie? {
+        let movie = searchResults[indexPath.row]
+        return movie
+    }
+    
+    private func showDetails(indexPath: IndexPath) {
+        guard let movie = getMovie(indexPath: indexPath) else
+        {
+            return
+        }
+                didSendEventClosure?(.details(movie))
+    }
+    
+    private func addToFavorites(indexPath: IndexPath) {
+        guard let movie = getMovie(indexPath: indexPath) else { return }
+        storageService.save(movie: movie) {
+            ProgressHUD.liveIcon(icon: .added)
+        }
+    }
+    
+    private func setupSearch() {
+        mainView.searchTextField.delegate = self
+    }
+    
+    private func registerCells() {
+        mainView.searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
     }
 }
 
 
-
-extension SearchViewController: UITableViewDataSource {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sortedArray.count
+        return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return SearchTableViewCell()
+        let cell = tableView.dequeue(SearchTableViewCell.self, forIndexPath: indexPath)
+        
+        let movie = searchResults[indexPath.row]
+        cell.setupCell(movie: movie)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        showDetails(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let addToFavorites = UIContextualAction(style: .normal, title: "") { [weak self] _, _, completionHandler in
+            self?.addToFavorites(indexPath: indexPath)
+            completionHandler(true)
+        }
+        addToFavorites.backgroundColor = .systemBlue
+        addToFavorites.image = UIImage(systemName: "heart")
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [addToFavorites])
+        return swipeConfiguration
     }
 }
 
 extension SearchViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        mainView.searchTextField.resignFirstResponder()
-        return true
+   @objc func textFieldDidChange() {
+            searchTimer?.invalidate()
+     searchText = mainView.searchTextField.text ?? ""
+       
+            guard !searchText.isEmpty else {
+                searchResults = []
+                return
+            }
+            
+        self.searchText = mainView.searchTextField.text ?? ""
+            searchTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(performSearch), userInfo: nil, repeats: false)
+        }
+}
+
+extension SearchViewController {
+    enum Event {
+        case details(Movie)
     }
 }

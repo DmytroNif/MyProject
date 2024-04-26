@@ -9,11 +9,10 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class SearchTableViewCell: UITableViewCell{
+class SearchTableViewCell: UITableViewCell {
     
     var imagePoster: UIImageView = {
-       let obj = UIImageView()
-        
+        let obj = UIImageView()
         return obj
     }()
     
@@ -26,6 +25,16 @@ class SearchTableViewCell: UITableViewCell{
         label.font = UIFont.systemFont(ofSize: 40)
         return label
     }()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupViews()
+    }
     
     private func setupViews() {
         layer.cornerRadius = 8

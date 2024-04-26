@@ -10,6 +10,8 @@ import Alamofire
 
 class NetworkManager {
     
+    typealias ResultClosure<T> = (Result<T, Error>) -> Void
+    
     private func fetchData<T: Decodable>(endpoint: Endpoint, completion: @escaping ((Result<T, Error>) -> Void)) {
         AF.request(endpoint)
             .validate()
@@ -82,6 +84,25 @@ class NetworkManager {
         dispatchGroup.notify(queue: .main) {
             completion(.success(tvList))
         }
+    }
+    
+    func searchMovies(query: String, completion: @escaping ResultClosure<Page>) {
+        let endpoint = Endpoint.search(query: query)
+        fetchData(endpoint: endpoint, completion: completion)
+    }
+}
+
+struct Page: Decodable {
+    let page: Int
+    let results: [Movie]
+    let totalPages: Int
+    let totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page = "page"
+        case results = "results"
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
     }
 }
 
