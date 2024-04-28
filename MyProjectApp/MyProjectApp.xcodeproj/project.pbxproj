@@ -36,8 +36,6 @@
 		845400BD2B68518D00508875 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400BC2B68518D00508875 /* Endpoint.swift */; };
 		845400BF2B6851C900508875 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400BE2B6851C900508875 /* Storage.swift */; };
 		845400C22B68558700508875 /* MovieDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400C12B68558700508875 /* MovieDB.swift */; };
-		845400C52B6AA65100508875 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400C42B6AA65100508875 /* ItemModel.swift */; };
-		845400C72B6B0A7400508875 /* NextItemButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845400C62B6B0A7400508875 /* NextItemButtons.swift */; };
 		845400CA2B6D8F8000508875 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 845400C92B6D8F8000508875 /* Realm */; };
 		845400CC2B6D8F8000508875 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 845400CB2B6D8F8000508875 /* RealmSwift */; };
 		846CF6DA2B74293100C4277B /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 846CF6D92B74293100C4277B /* YouTubeiOSPlayerHelper */; };
@@ -92,8 +90,6 @@
 		845400BC2B68518D00508875 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		845400BE2B6851C900508875 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		845400C12B68558700508875 /* MovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDB.swift; sourceTree = "<group>"; };
-		845400C42B6AA65100508875 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
-		845400C62B6B0A7400508875 /* NextItemButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextItemButtons.swift; sourceTree = "<group>"; };
 		846CF6DD2B7429F700C4277B /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = Controllers/DetailsViewController/DetailsViewController.swift; sourceTree = SOURCE_ROOT; };
 		846CF6DF2B742A1800C4277B /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailsView.swift; path = Views/DetailsView/DetailsView.swift; sourceTree = SOURCE_ROOT; };
 		84DA5FA82B72D2FB003B97AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -254,8 +250,6 @@
 				840BCD4C2B759BD800F5EB05 /* DetailsView */,
 				840BCD4B2B759BC900F5EB05 /* SavedView */,
 				840BCD4A2B759BB000F5EB05 /* MovieView */,
-				845400C42B6AA65100508875 /* ItemModel.swift */,
-				845400C62B6B0A7400508875 /* NextItemButtons.swift */,
 				845400A92B682C4B00508875 /* HeaderVIew.swift */,
 			);
 			path = Views;
@@ -505,7 +499,6 @@
 				84FF14D72BA64D100065D404 /* TableViewCell.swift in Sources */,
 				84FF14E92BAF1CAB0065D404 /* TVShowList.swift in Sources */,
 				84FF14D92BA64DA00065D404 /* UIPoster.swift in Sources */,
-				845400C52B6AA65100508875 /* ItemModel.swift in Sources */,
 				8454009E2B63F2EC00508875 /* MovieViewController.swift in Sources */,
 				845400A02B63F40500508875 /* SavedViewController.swift in Sources */,
 				84FF14E72BAF1BB90065D404 /* TVShowDetails.swift in Sources */,
@@ -522,7 +515,6 @@
 				84FF14E02BAF10E40065D404 /* TVShowViewController.swift in Sources */,
 				846CF6DE2B7429F700C4277B /* DetailsViewController.swift in Sources */,
 				845400BD2B68518D00508875 /* Endpoint.swift in Sources */,
-				845400C72B6B0A7400508875 /* NextItemButtons.swift in Sources */,
 				841F00FD2BD02E23001B78CF /* SearchTableViewCell.swift in Sources */,
 				845400B42B6850B800508875 /* Genre.swift in Sources */,
 				845400A82B68031400508875 /* MovieCollectionViewCell.swift in Sources */,

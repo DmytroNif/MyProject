@@ -79,7 +79,7 @@ class DetailsView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        DetailsSetup()
+        detailsSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -179,7 +179,7 @@ class DetailsView: UIView {
         }
     }
     
-    private func DetailsSetup() {
+    private func detailsSetup() {
         addSubviews()
         makeConstraints()
         

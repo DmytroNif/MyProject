@@ -33,7 +33,7 @@ class SearchView: UIView{
         textField.leftView = paddingView
         textField.leftViewMode = .always
         
-        textField.placeholder = "Search..."
+        textField.placeholder = "Введіть назву фільму чи серіалу..."
         
         return textField
     }()
@@ -48,7 +48,7 @@ class SearchView: UIView{
     override init(frame: CGRect) {
           super.init(frame: frame)
           
-        SearchSetup()
+        searchSetup()
 
       }
       
@@ -82,7 +82,7 @@ class SearchView: UIView{
         }
     }
         
-    private func SearchSetup() {
+    private func searchSetup() {
            addSubviews()
            makeConstraints()
        }

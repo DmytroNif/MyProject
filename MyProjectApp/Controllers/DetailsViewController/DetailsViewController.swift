@@ -105,30 +105,7 @@ class DetailsViewController: UIViewController {
             print("")
         }
 
-//        guard let movie = self.movie else { return }
-//        
-//        storage.fetchFavoriteMovies { [weak self] favoriteMovies in
-//            if let self = self {
-//                let isSaved = favoriteMovies.contains { $0.id == movie.id }
-//                if isSaved {
-//                    // Фільм вже збережений, видалимо його
-//                    self.storage.delete(movieId: movie.id ?? 0) {_ in
-//                        ProgressHUD.liveIcon("Unsaved", icon: .failed)
-//                        self.playAnimation(animationType: .second)
-//                        print("\(movie.title ?? "") removed from favorites")
-//                        self.updateSaveButtonState()
-//                    }
-//                } else {
-//                    // Фільм не збережений, додамо його
-//                    self.storage.save(movie: movie) {
-//                        ProgressHUD.liveIcon("Saved", icon: .added)
-//                        self.playAnimation(animationType: .first)
-//                        print("\(movie.title ?? "") added to favorites")
-//                        self.updateSaveButtonState()
-//                    }
-//                }
-//            }
-//        }
+
       
     }
     func playAnimation(animationType: AnimationType) {
@@ -183,17 +160,5 @@ class DetailsViewController: UIViewController {
         case nil:
             print("")
         }
-//        if let movie = self.movie {
-//            storage.fetchFavoriteMovies { favoriteMovies in
-//                let isSaved = favoriteMovies.contains { $0.id == movie.id }
-//                DispatchQueue.main.async {
-//                    if isSaved {
-//                        self.mainView.saveButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-//                    } else {
-//                        self.mainView.saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
-//                    }
-//                }
-//            }
-//        }
     }
 }

@@ -22,7 +22,7 @@ class SearchTableViewCell: UITableViewCell {
         label.numberOfLines = 2
         label.textColor = .black
         label.text = "Some text"
-        label.font = UIFont.systemFont(ofSize: 40)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -46,7 +46,7 @@ class SearchTableViewCell: UITableViewCell {
         label.snp.makeConstraints { make in
             make.bottom.top.equalToSuperview().offset(2.sizeH)
             make.trailing.equalToSuperview().offset(2.sizeW)
-            make.leading.equalToSuperview().offset(40.sizeW)
+            make.leading.equalToSuperview().offset(80.sizeW)
         }
         
         imagePoster.snp.makeConstraints { make in

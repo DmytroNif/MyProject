@@ -35,7 +35,7 @@ class SavedView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        RightSetup()
+        savedSetup()
         
     }
     
@@ -62,10 +62,9 @@ class SavedView: UIView{
         headerLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaInsets.bottom).offset(50.sizeH)
-            
         }
     }
-    private func RightSetup() {
+    private func savedSetup() {
         addSubviews()
         makeConstraints()
     }

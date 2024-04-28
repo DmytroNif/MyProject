@@ -17,6 +17,15 @@ class TVShowView: UIView{
         return obj
     }()
     
+    let headerLabel: UILabel = {
+        let obj = UILabel()
+        obj.textColor = .white
+        obj.text = "TVShows"
+        obj.font = UIFont.preferredFont(forTextStyle: .headline).withSize(40.sizeH)
+        return obj
+    }()
+    
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical // вертикальна прокрутка
@@ -32,7 +41,7 @@ class TVShowView: UIView{
         
 
         
-        TVShowViewSetup()
+        tvShowViewSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -42,6 +51,7 @@ class TVShowView: UIView{
     private func addSubviews(){
         self.addSubview(containerView)
         containerView.addSubview(collectionView)
+        containerView.addSubview(headerLabel)
     }
     
     private func makeConstraints(){
@@ -53,9 +63,14 @@ class TVShowView: UIView{
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        headerLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(safeAreaInsets.bottom).offset(50.sizeH)
+        }
     }
     
-    private func TVShowViewSetup() {
+    private func tvShowViewSetup() {
         addSubviews()
         makeConstraints()
     }

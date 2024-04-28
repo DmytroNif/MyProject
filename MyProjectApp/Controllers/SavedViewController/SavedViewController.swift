@@ -11,8 +11,6 @@ import ProgressHUD
 
 class SavedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //    private var movies: [Movie] = []
-    //    private var tvShow: [TVShow] = []
     private var dataArray: [SavedMoviesModel] = []
     
     var storage = StorageImpl()
@@ -27,7 +25,6 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
         mainView.tableView.register(MovieTableViewCell.self, forCellReuseIdentifier: "cell")
         registerCells()
         fetchFavoriteMovies()
-        fetchFavoriteTV()
     }
     
     override func loadView() {
@@ -39,7 +36,6 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchFavoriteMovies()
-        fetchFavoriteTV()
     }
     
     
@@ -63,10 +59,6 @@ class SavedViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
             self?.mainView.tableView.reloadData()
         }
-    }
-    
-    private func fetchFavoriteTV() {
-        
     }
     
     
