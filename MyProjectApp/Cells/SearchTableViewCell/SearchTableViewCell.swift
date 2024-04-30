@@ -59,4 +59,9 @@ class SearchTableViewCell: UITableViewCell {
         imagePoster.loadPoster(path: movie.posterPath ?? "")
         label.text = movie.title
     }
+    
+    func setupTVCell(tv: TVShow) {
+        imagePoster.loadPoster(path: tv.posterPath ?? "")
+        label.text = tv.name
+    }
 }

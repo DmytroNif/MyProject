@@ -90,6 +90,11 @@ class NetworkManager {
         let endpoint = Endpoint.search(query: query)
         fetchData(endpoint: endpoint, completion: completion)
     }
+    
+    func searchTV(query: String, completion: @escaping ResultClosure<TVPage>) {
+        let endpoint = Endpoint.search(query: query)
+        fetchData(endpoint: endpoint, completion: completion)
+    }
 }
 
 struct Page: Decodable {
@@ -105,4 +110,19 @@ struct Page: Decodable {
         case totalResults = "total_results"
     }
 }
+
+struct TVPage: Decodable {
+    let page: Int
+    let results: [TVShow]
+    let totalPages: Int
+    let totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page = "page"
+        case results = "results"
+        case totalPages = "total_pages"
+        case totalResults = "total_results"
+    }
+}
+
 

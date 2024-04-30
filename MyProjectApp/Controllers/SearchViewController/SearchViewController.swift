@@ -11,7 +11,6 @@
 //
 //  Created by admin on 07/02/2024.
 //
-
 import UIKit
 import RealmSwift
 import ProgressHUD
@@ -23,9 +22,7 @@ class SearchViewController: UIViewController {
     var didSendEventClosure: ((SearchViewController.Event) -> Void)?
     
     private var networkService = NetworkManager()
-    
     private let storageService = StorageImpl()
-    
     private var searchTimer: Timer?
     private var searchText: String = ""
     private var searchResults: [Movie] = [] {
@@ -39,7 +36,6 @@ class SearchViewController: UIViewController {
         setupTable()
         registerCells()
         mainView.searchTextField.delegate = self
-        
         mainView.searchTextField.addTarget(self, action: #selector(textFieldDidChange), for: .allEditingEvents)
     }
     
@@ -84,15 +80,10 @@ class SearchViewController: UIViewController {
         }
     }
     
-    private func setupSearch() {
-        mainView.searchTextField.delegate = self
-    }
-    
     private func registerCells() {
         mainView.searchTableView.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
     }
 }
-
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -147,5 +138,6 @@ extension SearchViewController: UITextFieldDelegate {
 extension SearchViewController {
     enum Event {
         case details(Movie)
+        case detailsTV(TVShow)
     }
 }
