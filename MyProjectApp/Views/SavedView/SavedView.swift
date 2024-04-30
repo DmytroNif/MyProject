@@ -55,13 +55,14 @@ class SavedView: UIView{
             make.edges.equalToSuperview()
         }
         
-        tableView.snp.makeConstraints { make in
-            make.edges.equalTo(containerView)
-        }
-        
         headerLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(safeAreaInsets.bottom).offset(50.sizeH)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(containerView)
+            make.top.equalTo(headerLabel.snp.bottom)
         }
     }
     private func savedSetup() {
