@@ -26,6 +26,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var tvgenre: TVGenre? {
+        didSet {
+            guard let tvgenre = tvgenre else { return }
+            fetchTVShowForGenre(genre: tvgenre)
+        }
+    }
+    
     var movies: [Movie] = []
     
     var tvData: [TVShow] = []
@@ -60,23 +67,37 @@ class MovieCollectionViewCell: UICollectionViewCell {
         containerView.addSubview(horizontalCollectionView)
     }
     
+    private func fetchTVShowForGenre(genre: TVGenre){
+        network.discoverTVShow(genres: [genre], page: 1) { result in
+            switch result {
+                
+            case .success(let data):
+                self.tvData = data.first?.tvShows ?? []
+                self.horizontalCollectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
+
+    }
+    
     private func fetchMoviesForGenre(genre: Genre) {
         
-        switch type {
+  //      switch type {
             
-        case .tv:
-            network.discoverTVShow(genres: [genre], page: 1) { result in
-                switch result {
-                    
-                case .success(let data):
-                    self.tvData = data.first?.tvShows ?? []
-                    self.horizontalCollectionView.reloadData()
-                case .failure(let error):
-                    print("")
-                }
-            }
+       // case .tv:
+//            network.discoverTVShow(genres: [genre], page: 1) { result in
+//                switch result {
+//                    
+//                case .success(let data):
+//                    self.tvData = data.first?.tvShows ?? []
+//                    self.horizontalCollectionView.reloadData()
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
             
-        case .movie:
+      //  case .movie:
             network.discoverMovies(genres: [genre], page: 1) { [weak self] result in
                 switch result {
                 case .success(let data):
@@ -86,9 +107,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
                     print(error)
                 }
             }
-        case .none:
-            print("")
-        }
+//        case .none:
+//            print("")
+//        }
     }
     
     private func setupCollection() {

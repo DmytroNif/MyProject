@@ -11,7 +11,7 @@ import ProgressHUD
 
 class TVShowViewController: UIViewController {
     
-    let genresData = Genre.allCases
+    let genresData = TVGenre.allCases
     let mainView = TVShowView()
     let manager = NetworkManager()
     var storage = StorageImpl()
@@ -42,7 +42,7 @@ class TVShowViewController: UIViewController {
             cell.backgroundColor = .black
             cell.clipsToBounds = true
             cell.type = .tv
-            cell.genre = genresData[indexPath.section]
+            cell.tvgenre = genresData[indexPath.section]
             
             cell.didSelectTvItem = { [weak self] tvShow in
                 let tvShowDetailsViewController = DetailsViewController()
@@ -68,7 +68,7 @@ class TVShowViewController: UIViewController {
         }
         
         func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return Genre.allCases.count
+            return TVGenre.allCases.count
         }
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             if kind == UICollectionView.elementKindSectionHeader {

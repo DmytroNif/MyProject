@@ -13,12 +13,11 @@ enum Endpoint: URLRequestConvertible {
     case discover(genre: Int, page: Int)
     case popular(page: Int)
     case details(id: Int)
-    case discovertv(page: Int)
-//    case discoverTV(genre: Int, page: Int)
-//    case popularTV(page: Int)
+    case discovertv(genre: Int, page: Int)
     case detailsTV(id: Int)
     
     case search(query: String)
+    case searchTV(query: String)
     
     var path: String {
         switch self {
@@ -32,10 +31,8 @@ enum Endpoint: URLRequestConvertible {
             return "/discover/tv"
         case .search:
             return "/search/movie"
-//        case .discoverTV:
-//            return "/discover/tvShow"
-//        case .popularTV:
-//            return "/discover/tvShow"
+        case .searchTV:
+            return "/search/tv"
         case .detailsTV(let id):
             return "/tv/\(id)"
         }
@@ -77,6 +74,11 @@ enum Endpoint: URLRequestConvertible {
             parameters = [
                 .init(name: "query", value: query)
             ]
+        case .searchTV(let query):
+            parameters = [
+                .init(name: "query", value: query)
+            ]
+
         }
         
         parameters.append(.init(name: "api_key", value: Constant.apiKey))

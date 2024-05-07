@@ -30,7 +30,7 @@ class MainCoordinator: Coordinator {
     
     func showSavedViewController(movieList: MovieList) {
         let savedViewController = SavedViewController.instantiate()
-       // rightViewController.coordinator = self
+       // savedViewController.coordinator = self
         navigationController.pushViewController(savedViewController, animated: true)
     }
     

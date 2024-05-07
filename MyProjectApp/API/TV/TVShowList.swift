@@ -8,7 +8,7 @@
 import Foundation
 
 struct TVShowList: Codable {
-    let genre: Genre
+    let genre: TVGenre
     let tvShows: [TVShow]
     
     var previewMovies: [TVShow] {

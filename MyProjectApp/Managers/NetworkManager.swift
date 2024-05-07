@@ -64,16 +64,16 @@ class NetworkManager {
         }
     }
     
-    func discoverTVShow(genres: [Genre], page: Int, completion: @escaping ((Result<[TVShowList], Error>) -> Void)) {
+    func discoverTVShow(genres: [TVGenre], page: Int, completion: @escaping ((Result<[TVShowList], Error>) -> Void)) {
         let dispatchGroup = DispatchGroup()
         var tvList: [TVShowList] = []
         
         genres.forEach { genre in
             dispatchGroup.enter()
-            fetchData(endpoint: .discovertv(page: page)) { (result: Result<TVShowsPageInfo, Error>) in
+            fetchData(endpoint: .discovertv(genre: genre.rawValue, page: page)) { (result: Result<TVShowsPageInfo, Error>) in
                 switch result {
                 case .success(let page):
-                    tvList.append(.init(genre: Genre(rawValue: genre.rawValue) ?? Genre.action, tvShows: page.results ?? [] ))
+                    tvList.append(.init(genre: TVGenre(rawValue: genre.rawValue) ?? TVGenre.actionAdventure, tvShows: page.results ?? [] ))
                 case .failure:
                     break
                 }
