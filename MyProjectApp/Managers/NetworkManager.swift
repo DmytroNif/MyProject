@@ -20,7 +20,7 @@ class NetworkManager {
                 case .success(let model):
                     completion(.success(model))
                 case .failure(let error):
-                    print(error.localizedDescription)
+                    print(error.localizedDescription, "1")
                     completion(.failure(error))
                 }
             }
@@ -73,7 +73,7 @@ class NetworkManager {
             fetchData(endpoint: .discovertv(genre: genre.rawValue, page: page)) { (result: Result<TVShowsPageInfo, Error>) in
                 switch result {
                 case .success(let page):
-                    tvList.append(.init(genre: TVGenre(rawValue: genre.rawValue) ?? TVGenre.actionAdventure, tvShows: page.results ?? [] ))
+                    tvList.append(.init(genre: genre, tvShows: page.results ?? []))
                 case .failure:
                     break
                 }

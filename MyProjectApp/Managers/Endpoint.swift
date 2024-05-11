@@ -62,11 +62,12 @@ enum Endpoint: URLRequestConvertible {
             parameters = [
                 .init(name: "append_to_response", value: "videos")
             ]
-        case .discovertv(page: let page):
+        case .discovertv(let genre, let page):
             parameters = [
-                .init(name: "page", value: "\(page)")
+                .init(name: "page", value: "\(page)"),
+                .init(name: "with_genres", value: "\(genre)")
                 ]
-        case .detailsTV(id: let id):
+        case .detailsTV:
             parameters = [
                 .init(name: "append_to_response", value: "videos")
             ]

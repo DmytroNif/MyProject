@@ -71,8 +71,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
         network.discoverTVShow(genres: [genre], page: 1) { result in
             switch result {
                 
-            case .success(let data):
-                self.tvData = data.first?.tvShows ?? []
+            case .success(let tvData):
+                self.tvData = tvData.first?.tvShows ?? []
                 self.horizontalCollectionView.reloadData()
             case .failure(let error):
                 print(error)
